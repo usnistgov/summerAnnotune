@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Annotune</title>
+    {% load static %}
+    {% block extra_head %}
+
+    {% endblock %}
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}"> -->
+    
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+   
+    <!-- <link rel="stylesheet" type="text/css" href="{% static 'css/label.css' %}"> -->
+
+
+    
+
+</head>
+<body class="fade show" style="height: 100%;">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'homepage' user_id %}">Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        
+                    </li>
+                </ul>
+                <!-- <form class="d-flex me-3">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+                <a href="{% url 'logout' %}" class="btn btn-outline-danger me-3">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+  
+    {% block content %}
+    {% endblock %}
+    <div id="timers" hidden>{{start_time}}</div>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const pageName = document.getElementById("pageName").textContent;
+        fetch(`/append_time/${pageName}`)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+            })
+            .catch(error => console.error('Error:', error));
+
+
+        const dateString = document.getElementById("timers").innerText;  
+        console.log("This is the date string: ", dateString)
+        let startTime = dateConvert(dateString);
+        let timerInterval;
+
+        // Automatically start the timer
+        timerInterval = setInterval(updateTimer, 1000);
+
+
+        function dateConvert(anyDateString){
+        // Split the date and time parts
+        const [datePart, timePart] = anyDateString.split(' ');
+        console.log(datePart, timePart)
+        // Split the date into day, month, and year
+        const [day, month, year] = datePart.split('/').map(part => parseInt(part, 10));
+        // Split the time into hours, minutes, and seconds
+        const [hours, minutes, seconds] = timePart.split(':').map(part => parseInt(part, 10));
+        // Create the Date object (Note: JavaScript Date constructor uses 0-based months)
+        const startTime  = new Date(`20${year}`, month - 1, day, hours, minutes, seconds);
+        return startTime;
+        } 
+        function pad(number) {
+            return number < 10 ? '0' + number : number;
+        }
+        
+        function updateTimer() {
+        const now = new Date();
+        const elapsedTime = now - startTime;
+        const hours = pad(Math.floor(elapsedTime / 3600000));
+        const minutes = pad(Math.floor((elapsedTime % 3600000) / 60000));
+        const seconds = pad(Math.floor((elapsedTime % 60000) / 1000));
+        document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
+    }
+
+    
+
+    </script>
+</body>
+</html>

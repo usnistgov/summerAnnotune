@@ -1,0 +1,238 @@
+body {
+    background-color: #f1f3f5;
+}
+
+.nav-icon {
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #212529;
+    margin-bottom: 15px;
+}
+
+.text-section, .labels-section {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.document-id {
+    font-size: 1.1em;
+    color: #495057;
+}
+
+.document-card {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%;
+    color: #212529;
+    overflow-y: scroll;
+}
+
+.btn-label:hover {
+    background-color: #5a6268;
+}
+
+.label-input {
+    display: inline-block;
+    width: 75%;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #ced4da;
+}
+
+.submit-btn {
+    display: inline-block;
+    width: 25%;
+    border-radius: 0 5px 5px 0;
+    border: 1px solid #28a745;
+}
+
+.toggle-btn {
+    font-size: 0.9em;
+    padding: 5px 15px;
+    border-radius: 5px;
+    width: auto;
+    margin-top: 10px;
+    display: block;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background-color: #0056b3;
+}
+
+.explanation-card {
+    background-color: #fafafa;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 10px;
+    color: #212529;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.suggested-label-btn {
+    margin: 5px;
+    flex: 1 0 45%;
+    text-align: center;
+}
+.highlight {
+    background-color: #f2f2ee;
+    box-shadow: 0 0 10px rgba(159, 234, 112, 0.5);
+    animation: glow 1s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px rgba(111, 194, 230, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgb(25, 239, 157);
+    }
+}
+
+.nav-icon {
+    font-size: 1.2em;
+    padding: 10px 20px;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.text-section, .labels-section {
+    background: #f9f9f9;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.document-id {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.document-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    height: 100%;
+    flex-grow: 1;
+}
+
+.btn-label {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    margin: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    display: inline-block;
+}
+
+
+.label-input {
+    display: inline-block;
+    width: 75%;
+    border-radius: 5px 0 0 5px;
+}
+
+.submit-btn {
+    display: inline-block;
+    width: 25%;
+    border-radius: 0 5px 5px 0;
+}
+
+.toggle-btn {
+    font-size: 0.9em;
+    padding: 5px 10px;
+    border-radius: 5px;
+    width: auto;
+    margin-top: 10px;
+    display: block;
+}
+
+.explanation-card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.suggested-label-btn {
+    flex: 1 1 auto;
+    max-width: 45%;
+    margin: 5px;
+}
+
+#alert {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    display: none;
+}
+
+#alert.show {
+    display: block;
+    transition: all 0.3s ease-in-out;
+
+}
+.explanation-container {
+            position: relative;
+            display: inline-block;
+        }
+    
+#explanationDiv {
+display: none;
+position: absolute;
+top: 100%;
+left: -200%; /* Adjust to center the div under the button */
+z-index: 1;
+width: 400px; /* Increase the width for better readability */
+background-color: rgb(226, 250, 190);
+border: 1px solid #381f1f;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+border-radius: 5px;
+padding: 20px;
+}
+
+.explanation-container:hover #explanationDiv {
+    display: block;
+}
+.explanation-container:hover ~ #documentText {
+    background-color: rgba(128, 128, 128, 0.3); /* Grey out the documentText div */
+    pointer-events: none; /* Disable interactions with the documentText div */
+}
+

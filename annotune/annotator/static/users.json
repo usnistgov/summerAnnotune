@@ -1,0 +1,532 @@
+{
+    "danystevo@gmail.com": {
+        "user_id": 3,
+        "email": "danystevo@gmail.com",
+        "document_ids": [
+            138,
+            1255,
+            689
+        ],
+        "label": [],
+        "labels": {
+            "138": {
+                "labels": {
+                    "first_label": "Disaster recovery",
+                    "second_label": "",
+                    "third_label": "Disaster recovery"
+                },
+                "time": "24",
+                "document_id": 138
+            },
+            "1255": {
+                "labels": {
+                    "first_label": "Disaster recovery",
+                    "second_label": "Express emotion",
+                    "third_label": "Disaster recovery"
+                },
+                "time": "48",
+                "document_id": 1255
+            },
+            "689": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "Comparison over time",
+                    "third_label": "Discuss socio-political causes"
+                },
+                "time": "15",
+                "document_id": 689
+            }
+        },
+        "start_time": [
+            "15/06/24 20:32:33",
+            "15/06/24 20:49:58",
+            "15/06/24 20:53:08"
+        ],
+        "date": [],
+        "logoutTime": [
+            "15/06/24 20:49:54",
+            "15/06/24 21:33:25"
+        ],
+        "pageTimes": [
+            {
+                "page": "homePage",
+                "time": "15/06/24 20:32:33"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 20:32:35"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 20:32:38"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 20:32:39"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 20:34:01"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 20:34:17"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 20:35:09"
+            },
+            {
+                "page": "homePage",
+                "time": "15/06/24 20:36:09"
+            },
+            {
+                "page": "homePage",
+                "time": "15/06/24 20:36:21"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 20:37:15"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 20:37:17"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 20:37:20"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 20:37:47"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 20:45:47"
+            },
+            {
+                "page": "homePage",
+                "time": "15/06/24 20:49:58"
+            },
+            {
+                "page": "homePage",
+                "time": "15/06/24 20:53:08"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 20:53:14"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 20:53:19"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 20:54:08"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:02:27"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:03:33"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:03:36"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:04:17"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:05:49"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:05:55"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:07:30"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:07:50"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:09:23"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:09:45"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:11:00"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:11:19"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:11:48"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:12:02"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:12:11"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:12:22"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:12:38"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:13:29"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:14:00"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:14:11"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:14:24"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:14:45"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:15:34"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:15:46"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:15:58"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:16:36"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:17:00"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:17:16"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:17:24"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:17:56"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:18:41"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:19:51"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:19:53"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:21:15"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:21:22"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:21:24"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:21:31"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:22:35"
+            },
+            {
+                "page": "homePage",
+                "time": "15/06/24 21:23:52"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:23:58"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:24:06"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:26:39"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:27:12"
+            },
+            {
+                "page": "homePage",
+                "time": "15/06/24 21:27:23"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:27:30"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:27:33"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:30:06"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:31:26"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:32:06"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:32:58"
+            }
+        ]
+    },
+    "daste19@morgan.edu": {
+        "user_id": 4,
+        "email": "daste19@morgan.edu",
+        "document_ids": [
+            1497,
+            410,
+            1086,
+            57,
+            2061,
+            1497
+        ],
+        "label": [],
+        "labels": {
+            "1497": {
+                "labels": {
+                    "first_label": "Comparison over time",
+                    "second_label": "",
+                    "third_label": "Comparison over time"
+                },
+                "time": "12",
+                "document_id": 1497
+            },
+            "410": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": "Discuss socio-political causes"
+                },
+                "time": "5",
+                "document_id": 410
+            },
+            "1086": {
+                "labels": {
+                    "first_label": "Disaster prevention or mitigation",
+                    "second_label": "",
+                    "third_label": "Disaster prevention or mitigation"
+                },
+                "time": "8",
+                "document_id": 1086
+            },
+            "57": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": "Express emotion"
+                },
+                "time": "12",
+                "document_id": 57
+            },
+            "2061": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": "Document what is happening"
+                },
+                "time": "13",
+                "document_id": 2061
+            }
+        },
+        "start_time": [
+            "15/06/24 21:33:32"
+        ],
+        "date": [],
+        "logoutTime": [],
+        "pageTimes": [
+            {
+                "page": "homePage",
+                "time": "15/06/24 21:33:32"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:33:42"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:33:44"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:33:48"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:34:54"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:35:25"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:36:55"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:37:10"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:39:29"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:40:03"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:40:05"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:40:06"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:40:13"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:40:14"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:40:28"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:40:30"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:40:31"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:41:49"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:41:50"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:43:51"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:43:53"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:44:28"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:45:05"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:45:28"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:45:30"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:45:31"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:46:02"
+            },
+            {
+                "page": "labeled",
+                "time": "15/06/24 21:47:12"
+            },
+            {
+                "page": "relabel",
+                "time": "15/06/24 21:50:44"
+            },
+            {
+                "page": "relabel",
+                "time": "15/06/24 21:50:54"
+            },
+            {
+                "page": "codebook",
+                "time": "15/06/24 21:50:57"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/06/24 21:51:03"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:51:06"
+            },
+            {
+                "page": "label",
+                "time": "15/06/24 21:51:20"
+            }
+        ]
+    }
+}

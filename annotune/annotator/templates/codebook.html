@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+{% block extra_head %}
+{% load static %}
+
+{% endblock%}
+<style>
+    table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #dddddd;
+                text-align: left;
+                padding: 8px;
+            }
+            th {
+                background-color: #f2f2f2;
+            }
+
+    #timer {
+        font-size: 2rem;
+        /* font-weight: bold; */
+    }
+    .timer-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 5px;
+    
+    }
+
+</style>
+
+
+
+{% block content %}
+
+
+<div class="container mt-5">
+    <div class="d-flex justify-content-between mb-4">
+        <h1>Codebook</h1>
+       
+            <div id="timer" style="font-size: x-large;"></div>
+            <!-- <div id="timers" hidden>{{start_time}}</div> -->
+
+
+        <div id="pageStartTime" >{{pageStart}}</div>
+        <div id="pageName" hidden>codebook</div>
+
+        <a href="{% url 'documents' %}" id="codebook" class="btn btn-outline-secondary btn-lg nav-icon">
+            Documents <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead class="thead-dark">
+            <tr>
+                <th>Category</th>
+                <th>Code</th>
+                <th>Definition</th>
+                <th>Keywords</th>
+                <th>Examples</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for index, entry in codebook.items %}
+            <tr>
+                <td>{{entry.Category}}</td>
+                <td>{{ entry.Code }}</td>
+                <td>{{ entry.Definition }}</td>
+                <td>{{ entry.Keywords }}</td>
+                <td>{{ entry.Example }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+  
+
+{% endblock %}

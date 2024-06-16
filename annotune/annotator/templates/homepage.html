@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% block extra_head %}
+{% load static %}
+<style>
+
+    #timer {
+        font-size: 2rem;
+        /* font-weight: bold; */
+    }
+    .timer-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 5px;
+    
+    }
+
+</style>
+{% endblock%}
+
+
+
+
+
+
+{% block content %}
+<div class="mains-div" style="height: 100%;">
+    <div class="container">
+        <div class="main-text text-center m-3">
+            <div class="timer-container">
+                <div id="timer"></div>
+            </div>
+            <br>
+            <h1>Annotune</h1>
+            <br>
+            <div class="container m-3">
+                Annotune, short for Annotation, Text Understanding and Navigation Engine, leverages advanced topic modeling techniques to enhance document annotation.
+                By quickly analyzing and grouping documents into clusters and keywords, Annotune provides a deeper understanding of the context, significantly
+                accelerating the annotation process.
+            </div>
+            <br>
+            <br>
+            <div class="row row-cols-1 row-cols-md-2 g-4"> <!-- Cards section -->
+                <!-- Card for Enhanced Speed -->
+                <div class="col">
+                    <div class="card h-200 text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">Enhanced Speed</h5>
+                            <p class="card-text">Reduce the time spent on document review by quickly identifying key themes and topics.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card for Improved Accuracy -->
+                <div class="col">
+                    <div class="card h-100 text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">Improved Accuracy</h5>
+                            <p class="card-text">Precision in topic discovery helps ensure that annotations are contextually relevant.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card for User-Friendly Interface -->
+                <div class="col">
+                    <div class="card h-100 text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">User-Friendly Interface</h5>
+                            <p class="card-text">Easy-to-navigate interfaces make it simple for users of all skill levels to utilize Annotune's features.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card for Scalability -->
+                <div class="col">
+                    <div class="card h-100 text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">Scalability</h5>
+                            <p class="card-text">Capable of handling large volumes of data efficiently, making it ideal for both small projects and enterprise-scale operations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card for Integration Capabilities -->
+                <div class="col">
+                    <div class="card h-100 text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">Integration Capabilities</h5>
+                            <p class="card-text">Easily integrates with existing document management systems to streamline workflows.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Additional Card (same as the previous) -->
+                <div class="col">
+                    <div class="card h-100 text-white bg-dark">
+                        <div class="card-body">
+                            <h5 class="card-title">Integration Capabilities</h5>
+                            <p class="card-text">Easily integrates with existing document management systems to streamline workflows.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="pageName" hidden>homePage</div>
+            <!-- Get Started Button -->
+            <div class="mt-4">
+                
+                <!-- <a href="" class="btn btn-success btn-lg">Get Started</a> -->
+                <a href="{% url 'codebook' user_id %}" class="btn btn-success btn-lg">Get Started</a>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</div>
+
+{% endblock %}

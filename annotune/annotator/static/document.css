@@ -1,0 +1,84 @@
+.container-fluids {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button {
+    border: none;
+    border-radius: 0;
+    transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+    background-color: #e9ecef;
+}
+
+.badge-keyword {
+    font-size: 0.85em;
+    padding: 0.5em 0.75em;
+    margin: 0.25em;
+}
+
+.text-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.text-link:hover {
+    color: #0056b3;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table-light th {
+    background-color: #f8f9fa;
+    color: #343a40;
+}
+
+.accordion-item {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.accordion-header {
+    border-radius: 5px;
+}
+
+.accordion-collapse {
+    border-top: 1px solid #ddd;
+}
+
+.text-truncate {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.table-responsive {
+    max-height: calc(100vh - 120px);
+    overflow-y: auto;
+}
+
+.table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+.table th:nth-child(1), .table td:nth-child(1) {
+    width: 10%;
+}
+
+.table th:nth-child(2), .table td:nth-child(2) {
+    width: 90%;
+}
+
+.table th, .table td {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

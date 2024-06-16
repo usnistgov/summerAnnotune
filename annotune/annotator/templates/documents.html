@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static '/document.css' %}">
+<style>
+    #timer {
+        font-size: 2rem;
+        /* font-weight: bold; */
+    }
+    .timer-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 5px;
+    
+    }
+</style>
+
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluids" style="margin-left: 3%;">
+    <div class="col-12 d-flex justify-content-between mb-3">
+        
+        <div class="timer-container">
+            <div id="timer"></div>
+           
+        </div>
+        <div id="pageStartTime" hidden>{{pageStart}}</div>
+        <div id="pageName" hidden>Document_list</div>
+        
+    
+        <div class="float-end">
+            <!-- <a href="{% url 'documents' %}" id="documents" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Documents <i class="fas fa-arrow-right"></i>
+            </a> -->
+            <a href="{% url 'codebook' user_id%}" id="codebook" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Codebook <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="{% url 'labeled' user_id%}" id="labeled" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Labeled <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
+    
+    </div>
+    <div class="row">
+        <!-- Left Column for Keywords (Accordion) -->
+        <div class="col-md-4">
+            <h4 class="mb-2">Keywords</h4>
+            <div class="accordion scrollable-accordion" id="keywordsAccordion" style="max-height: calc(100vh - 120px); overflow-y: auto;">
+                {% for id, keyword_lists in keywords.items %}
+                <div class="accordion-item" data-id="{{ id }}">
+                    <h2 class="accordion-header" id="heading{{ id }}">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ id }}" aria-expanded="false" aria-controls="collapse{{ id }}">
+                            Keyword {{ id }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ id }}" class="accordion-collapse collapse" aria-labelledby="heading{{ id }}" data-bs-parent="#keywordsAccordion">
+                        <div class="accordion-body">
+                            {% for word in keyword_lists %}
+                            <span class="badge bg-secondary badge-keyword">{{ word }}</span>
+                            {% endfor %}
+                            <div id="text_keys" style="display: none;">
+                                {% for cluster_id, cluster in clusters.items %}
+                                    {% if cluster_id == id %}
+                                        {% for clust in cluster %}
+                                            <div class="topic_ids"> 
+                                                <span>{{ clust }}</span>
+                                            </div>
+                                        {% endfor %}
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Right Column for Text Table -->
+        <div class="col-md-8">
+            <h4 class="mb-2">Texts</h4>
+            <div class="table-responsive" style="width: 95%;">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Text Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="text-table-body">
+                        {% for doc_id, text in all_texts.items %}
+                        <tr data-id="{{ doc_id }}">
+                            <td>{{ doc_id }}</td>
+                            <td class="text-truncate"><a href="{% url 'label' doc_id %}" class="text-link">{{text }}</a> </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% block footercontent %}
+{% endblock %}
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const recommendedDocId = '{{ recommended_doc_id }}';
+        const accordionItems = document.querySelectorAll('.accordion-item');
+        const accordionContainer = document.getElementById('keywordsAccordion');
+        let recommendedAccordionItem;
+
+        function filterTable(topicIds) {
+            const tableRows = document.querySelectorAll('table tbody tr');
+            const tbody = document.getElementById('text-table-body');
+            let recommendedRow;
+
+            tableRows.forEach(row => {
+                const docId = row.querySelector('td:first-child').textContent.trim();
+                if (docId === recommendedDocId) {
+                    recommendedRow = row;
+                    row.style.backgroundColor = '#ffffcc';  // Highlight the recommended document
+                }
+                if (topicIds.includes(docId)) {
+                    row.style.display = '';
+                } else {
+                    row.style.display = 'none';
+                }
+            });
+
+            // Move the recommended document to the top of the table
+            if (recommendedRow) {
+                tbody.prepend(recommendedRow);
+            }
+        }
+
+        function filterAndHighlight() {
+            accordionItems.forEach(item => {
+                const topicIdsDivs = item.querySelectorAll('.topic_ids span');
+                const topicIds = Array.from(topicIdsDivs).map(span => span.textContent.trim());
+
+                if (topicIds.includes(recommendedDocId)) {
+                    const button = item.querySelector('.accordion-button');
+                    recommendedAccordionItem = item;
+                    button.click();  // Automatically click the accordion button
+                    filterTable(topicIds);
+                }
+            });
+
+            // Move the recommended accordion item to the top of the list
+            if (recommendedAccordionItem) {
+                accordionContainer.prepend(recommendedAccordionItem);
+            }
+        }
+
+        // Initial filter and highlight
+        filterAndHighlight();
+
+        // Add event listeners for manual clicks
+        const accordionButtons = document.querySelectorAll('.accordion-button');
+        accordionButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const accordionItem = this.closest('.accordion-item');
+                const topicIdsDivs = accordionItem.querySelectorAll('.topic_ids span');
+                const topicIds = Array.from(topicIdsDivs).map(span => span.textContent.trim());
+                filterTable(topicIds);
+            });
+        });
+    });
+</script>
+
+{% endblock %}
