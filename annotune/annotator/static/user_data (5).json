@@ -1,0 +1,1809 @@
+{
+    "danystevo@gmail.com": {
+        "user_id": 2,
+        "email": "danystevo@gmail.com",
+        "document_ids": [
+            637,
+            637,
+            1361
+        ],
+        "label": [],
+        "labels": {
+            "637": {
+                "labels": {
+                    "first_label": "Discuss climate change",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 637
+            },
+            "1361": {
+                "labels": {
+                    "first_label": "Disaster health support",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1361
+            }
+        },
+        "start_time": [
+            "18/06/24 11:08:05",
+            "18/06/24 11:09:44",
+            "21/06/24 05:23:48",
+            "21/06/24 05:40:21"
+        ],
+        "date": [],
+        "logoutTime": [
+            "18/06/24 11:09:34",
+            "18/06/24 11:10:07",
+            "21/06/24 05:26:23",
+            "21/06/24 05:40:30"
+        ],
+        "pageTimes": [
+            {
+                "page": "homePage",
+                "time": "18/06/24 11:08:05"
+            },
+            {
+                "page": "codebook",
+                "time": "18/06/24 11:08:11"
+            },
+            {
+                "page": "Document_list",
+                "time": "18/06/24 11:08:29"
+            },
+            {
+                "page": "label",
+                "time": "18/06/24 11:08:33"
+            },
+            {
+                "page": "labeled",
+                "time": "18/06/24 11:08:46"
+            },
+            {
+                "page": "relabel",
+                "time": "18/06/24 11:08:48"
+            },
+            {
+                "page": "codebook",
+                "time": "18/06/24 11:09:16"
+            },
+            {
+                "page": "Document_list",
+                "time": "18/06/24 11:09:18"
+            },
+            {
+                "page": "homePage",
+                "time": "18/06/24 11:09:44"
+            },
+            {
+                "page": "codebook",
+                "time": "18/06/24 11:09:47"
+            },
+            {
+                "page": "Document_list",
+                "time": "18/06/24 11:09:50"
+            },
+            {
+                "page": "label",
+                "time": "18/06/24 11:09:55"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 05:23:49"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 05:23:51"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 05:40:21"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 05:40:24"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 05:40:26"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 09:06:39"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 09:06:43"
+            },
+            {
+                "page": "homePage",
+                "time": "22/06/24 18:33:44"
+            },
+            {
+                "page": "codebook",
+                "time": "22/06/24 18:33:47"
+            }
+        ]
+    },
+    "juan.fung@nist.gov": {
+        "user_id": 3,
+        "email": "juan.fung@nist.gov",
+        "document_ids": [
+            590,
+            561,
+            673,
+            561,
+            375,
+            538,
+            985,
+            1084,
+            1740,
+            882,
+            1892,
+            693,
+            751,
+            1108,
+            722
+        ],
+        "label": [],
+        "labels": {
+            "590": {
+                "labels": {
+                    "first_label": "Not relevant",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 590
+            },
+            "561": {
+                "labels": {
+                    "first_label": "FLAG: Unclear Tweet",
+                    "second_label": "Raise awareness of event",
+                    "third_label": "No code"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 561
+            },
+            "673": {
+                "labels": {
+                    "first_label": "FLAG: Unclear Tweet",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 673
+            },
+            "375": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 375
+            },
+            "538": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 538
+            },
+            "985": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 985
+            },
+            "1084": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1084
+            },
+            "1740": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1740
+            },
+            "882": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 882
+            },
+            "1892": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1892
+            },
+            "693": {
+                "labels": {
+                    "first_label": "Documenting damage or impacts",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 693
+            },
+            "751": {
+                "labels": {
+                    "first_label": "Disaster health support",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 751
+            },
+            "1108": {
+                "labels": {
+                    "first_label": "Disaster health support",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1108
+            },
+            "722": {
+                "labels": {
+                    "first_label": "FLAG: Other",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 722
+            }
+        },
+        "start_time": [
+            "18/06/24 11:56:36",
+            "18/06/24 11:57:19",
+            "21/06/24 10:26:22",
+            "21/06/24 13:34:31",
+            "21/06/24 14:26:01"
+        ],
+        "date": [],
+        "logoutTime": [
+            "18/06/24 11:57:14",
+            "18/06/24 11:59:13",
+            "21/06/24 10:27:11",
+            "21/06/24 13:34:52",
+            "21/06/24 14:26:11"
+        ],
+        "pageTimes": [
+            {
+                "page": "homePage",
+                "time": "18/06/24 11:56:36"
+            },
+            {
+                "page": "codebook",
+                "time": "18/06/24 11:56:38"
+            },
+            {
+                "page": "Document_list",
+                "time": "18/06/24 11:56:40"
+            },
+            {
+                "page": "label",
+                "time": "18/06/24 11:56:41"
+            },
+            {
+                "page": "labeled",
+                "time": "18/06/24 11:56:52"
+            },
+            {
+                "page": "Document_list",
+                "time": "18/06/24 11:56:58"
+            },
+            {
+                "page": "label",
+                "time": "18/06/24 11:57:00"
+            },
+            {
+                "page": "labeled",
+                "time": "18/06/24 11:57:07"
+            },
+            {
+                "page": "relabel",
+                "time": "18/06/24 11:57:11"
+            },
+            {
+                "page": "homePage",
+                "time": "18/06/24 11:57:19"
+            },
+            {
+                "page": "codebook",
+                "time": "18/06/24 11:57:21"
+            },
+            {
+                "page": "Document_list",
+                "time": "18/06/24 11:57:24"
+            },
+            {
+                "page": "labeled",
+                "time": "18/06/24 11:57:27"
+            },
+            {
+                "page": "relabel",
+                "time": "18/06/24 11:58:55"
+            },
+            {
+                "page": "labeled",
+                "time": "18/06/24 11:59:06"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 10:26:22"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 10:26:24"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 10:26:26"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 10:26:27"
+            },
+            {
+                "page": "labeled",
+                "time": "21/06/24 10:26:51"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 10:26:57"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 10:27:00"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 13:34:31"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 13:34:33"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 13:34:35"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 13:34:37"
+            },
+            {
+                "page": "labeled",
+                "time": "21/06/24 13:34:47"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 13:34:50"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 14:26:01"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 14:26:03"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 14:26:04"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 14:26:05"
+            }
+        ]
+    },
+    "anna.liu@nist.gov": {
+        "user_id": 4,
+        "email": "anna.liu@nist.gov",
+        "document_ids": [
+            1510,
+            1059,
+            1145,
+            897,
+            599,
+            1111,
+            395,
+            201,
+            28,
+            1925,
+            1989,
+            549,
+            917,
+            812,
+            1260,
+            1482,
+            638,
+            978,
+            456,
+            1249,
+            1249,
+            517,
+            2053,
+            2099,
+            987,
+            413,
+            572,
+            47,
+            2158,
+            2172,
+            773,
+            481,
+            1260,
+            1519,
+            205,
+            1665,
+            797,
+            1954,
+            837,
+            557,
+            970,
+            965,
+            90,
+            2105,
+            1474,
+            223,
+            465,
+            223,
+            1195,
+            817,
+            1785,
+            168,
+            1588,
+            422,
+            1588,
+            1920,
+            742,
+            261,
+            1111,
+            28,
+            1925,
+            1989,
+            1785,
+            549,
+            917,
+            1482,
+            638,
+            1249,
+            2099,
+            47,
+            2172,
+            773,
+            773,
+            481,
+            1519,
+            1954,
+            557,
+            90,
+            2105,
+            465,
+            1195,
+            817,
+            168,
+            1588,
+            422,
+            1415,
+            1943,
+            900,
+            983,
+            923,
+            1523,
+            698,
+            998,
+            667,
+            646,
+            954,
+            262,
+            245,
+            595,
+            1392,
+            1093,
+            821,
+            962,
+            546,
+            900,
+            370,
+            2126,
+            830,
+            1355
+        ],
+        "label": [],
+        "labels": {
+            "1510": {
+                "labels": {
+                    "first_label": "Documenting damage or impacts",
+                    "second_label": "Document what is happening",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1510
+            },
+            "1059": {
+                "labels": {
+                    "first_label": "Information about condition or location, or pleas for help",
+                    "second_label": "Disaster health support",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1059
+            },
+            "1145": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "Raise awareness of event",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1145
+            },
+            "897": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 897
+            },
+            "599": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 599
+            },
+            "1111": {
+                "labels": {
+                    "first_label": "Disaster preparation",
+                    "second_label": "Document what is happening",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1111
+            },
+            "395": {
+                "labels": {
+                    "first_label": "Disaster preparation",
+                    "second_label": "Document what is happening",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 395
+            },
+            "201": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "Documenting damage or impacts",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 201
+            },
+            "28": {
+                "labels": {
+                    "first_label": "Disaster preparation",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 28
+            },
+            "1925": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "No code",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1925
+            },
+            "1989": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster recovery",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1989
+            },
+            "549": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster preparation",
+                    "third_label": "Document what is happening"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 549
+            },
+            "917": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Information about condition or location, or pleas for help",
+                    "third_label": "Disaster recovery"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 917
+            },
+            "812": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 812
+            },
+            "1260": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1260
+            },
+            "1482": {
+                "labels": {
+                    "first_label": "FLAG: Unclear Tweet",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1482
+            },
+            "638": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Document what is happening",
+                    "third_label": "Comparison over time"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 638
+            },
+            "978": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 978
+            },
+            "456": {
+                "labels": {
+                    "first_label": "FLAG: Unclear Tweet",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 456
+            },
+            "1249": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster preparation",
+                    "third_label": "Document what is happening"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1249
+            },
+            "517": {
+                "labels": {
+                    "first_label": "Documenting damage or impacts",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 517
+            },
+            "2053": {
+                "labels": {
+                    "first_label": "Disaster recovery",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 2053
+            },
+            "2099": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster recovery",
+                    "third_label": "Information about condition or location, or pleas for help"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 2099
+            },
+            "987": {
+                "labels": {
+                    "first_label": "Disaster response",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 987
+            },
+            "413": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 413
+            },
+            "572": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 572
+            },
+            "47": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Document what is happening",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 47
+            },
+            "2158": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 2158
+            },
+            "2172": {
+                "labels": {
+                    "first_label": "Disaster recovery",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 2172
+            },
+            "773": {
+                "labels": {
+                    "first_label": "Disaster preparation",
+                    "second_label": "Express emotion",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 773
+            },
+            "481": {
+                "labels": {
+                    "first_label": "FLAG: Other",
+                    "second_label": "Discuss socio-political causes",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 481
+            },
+            "1519": {
+                "labels": {
+                    "first_label": "Discuss climate change",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1519
+            },
+            "205": {
+                "labels": {
+                    "first_label": "Not relevant",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 205
+            },
+            "1665": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1665
+            },
+            "797": {
+                "labels": {
+                    "first_label": "Raise awareness of event",
+                    "second_label": "Express emotion",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 797
+            },
+            "1954": {
+                "labels": {
+                    "first_label": "FLAG: Unclear Tweet",
+                    "second_label": "Documenting damage or impacts",
+                    "third_label": "Discuss socio-political causes"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1954
+            },
+            "837": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 837
+            },
+            "557": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster recovery",
+                    "third_label": "Information about condition or location, or pleas for help"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 557
+            },
+            "970": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 970
+            },
+            "965": {
+                "labels": {
+                    "first_label": "",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 965
+            },
+            "90": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Document what is happening",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 90
+            },
+            "2105": {
+                "labels": {
+                    "first_label": "FLAG: Unclear Tweet",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 2105
+            },
+            "1474": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1474
+            },
+            "223": {
+                "labels": {
+                    "first_label": "Not relevant",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 223
+            },
+            "465": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Express emotion",
+                    "third_label": "No code"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 465
+            },
+            "1195": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster recovery",
+                    "third_label": "Document what is happening"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1195
+            },
+            "817": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster response",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 817
+            },
+            "1785": {
+                "labels": {
+                    "first_label": "Documenting damage or impacts",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1785
+            },
+            "168": {
+                "labels": {
+                    "first_label": "Not relevant",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 168
+            },
+            "1588": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1588
+            },
+            "422": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster recovery",
+                    "third_label": "Express emotion"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 422
+            },
+            "1920": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "Disaster prevention or mitigation",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1920
+            },
+            "742": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "Disaster recovery",
+                    "third_label": "FLAG: Confirm Primary Code"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 742
+            },
+            "261": {
+                "labels": {
+                    "first_label": "Disaster response",
+                    "second_label": "Document what is happening",
+                    "third_label": "Express emotion"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 261
+            },
+            "1415": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1415
+            },
+            "1943": {
+                "labels": {
+                    "first_label": "Documenting damage or impacts",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1943
+            },
+            "900": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 900
+            },
+            "983": {
+                "labels": {
+                    "first_label": "Disaster recovery",
+                    "second_label": "Discuss socio-political causes",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 983
+            },
+            "923": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 923
+            },
+            "1523": {
+                "labels": {
+                    "first_label": "Documenting damage or impacts",
+                    "second_label": "Raise awareness of event",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1523
+            },
+            "698": {
+                "labels": {
+                    "first_label": "Disaster recovery",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 698
+            },
+            "998": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "Express emotion",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 998
+            },
+            "667": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Disaster response",
+                    "third_label": "Document what is happening"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 667
+            },
+            "646": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "Documenting damage or impacts",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 646
+            },
+            "954": {
+                "labels": {
+                    "first_label": "FLAG: Confirm Primary Code",
+                    "second_label": "Comparison over time",
+                    "third_label": "Documenting damage or impacts"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 954
+            },
+            "262": {
+                "labels": {
+                    "first_label": "Not relevant",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 262
+            },
+            "245": {
+                "labels": {
+                    "first_label": "Disaster response",
+                    "second_label": "Comparison over time",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 245
+            },
+            "595": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 595
+            },
+            "1392": {
+                "labels": {
+                    "first_label": "Document what is happening",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1392
+            },
+            "1093": {
+                "labels": {
+                    "first_label": "Not relevant",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1093
+            },
+            "821": {
+                "labels": {
+                    "first_label": "Disaster recovery",
+                    "second_label": "Information about condition or location, or pleas for help",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 821
+            },
+            "962": {
+                "labels": {
+                    "first_label": "Documenting damage or impacts",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 962
+            },
+            "546": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 546
+            },
+            "370": {
+                "labels": {
+                    "first_label": "Comparison over time",
+                    "second_label": "Discuss climate change",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 370
+            },
+            "2126": {
+                "labels": {
+                    "first_label": "Disaster response",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 2126
+            },
+            "830": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 830
+            },
+            "1355": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1355
+            }
+        },
+        "start_time": [
+            "20/06/24 10:23:51",
+            "20/06/24 11:02:23",
+            "20/06/24 11:45:01",
+            "20/06/24 13:06:31",
+            "20/06/24 13:48:47",
+            "20/06/24 14:29:46",
+            "21/06/24 09:45:03",
+            "21/06/24 10:21:32",
+            "21/06/24 15:51:32"
+        ],
+        "date": [],
+        "logoutTime": [
+            "20/06/24 10:35:18",
+            "20/06/24 11:44:53",
+            "20/06/24 11:45:14",
+            "20/06/24 13:07:41",
+            "20/06/24 14:06:41",
+            "20/06/24 14:32:19",
+            "21/06/24 10:23:15",
+            "21/06/24 11:22:42"
+        ],
+        "pageTimes": [
+            {
+                "page": "homePage",
+                "time": "20/06/24 10:23:51"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 10:24:00"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 10:24:06"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 10:24:12"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 10:24:14"
+            },
+            {
+                "page": "label",
+                "time": "20/06/24 10:24:17"
+            },
+            {
+                "page": "label",
+                "time": "20/06/24 10:27:36"
+            },
+            {
+                "page": "homePage",
+                "time": "20/06/24 11:02:23"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 11:02:30"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 11:02:32"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 11:02:35"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 11:02:38"
+            },
+            {
+                "page": "label",
+                "time": "20/06/24 11:02:39"
+            },
+            {
+                "page": "homePage",
+                "time": "20/06/24 11:45:02"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 11:45:05"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 11:45:07"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 11:45:09"
+            },
+            {
+                "page": "homePage",
+                "time": "20/06/24 13:06:32"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 13:06:35"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 13:06:38"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 13:06:39"
+            },
+            {
+                "page": "homePage",
+                "time": "20/06/24 13:48:47"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 13:48:50"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 13:48:52"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 13:48:55"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 13:48:57"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 13:49:04"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:49:09"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 13:50:53"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:16"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:17"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:18"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:19"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:20"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:21"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:22"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:24"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:25"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:26"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:28"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:28"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:29"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:30"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:31"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:33"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:51:34"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:33"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:34"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:35"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:36"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:37"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:38"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:39"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:40"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:41"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:44"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:45"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:46"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:47"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:48"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:49"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:50"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:51"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:52"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:53"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:57"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:58"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:57:59"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:58:00"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:58:01"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:58:02"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:58:02"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:58:04"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:58:05"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 13:58:06"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 14:05:01"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 14:05:02"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 14:05:03"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 14:05:04"
+            },
+            {
+                "page": "relabel",
+                "time": "20/06/24 14:05:05"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 14:06:31"
+            },
+            {
+                "page": "homePage",
+                "time": "20/06/24 14:29:47"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 14:29:50"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 14:29:53"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 14:29:54"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 14:32:05"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 14:32:09"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 14:32:11"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 09:45:05"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 09:45:08"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 09:45:10"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 09:45:12"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 09:45:15"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 09:45:15"
+            },
+            {
+                "page": "labeled",
+                "time": "21/06/24 09:45:20"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 10:21:32"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 10:21:39"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 10:21:42"
+            },
+            {
+                "page": "labeled",
+                "time": "21/06/24 10:21:48"
+            },
+            {
+                "page": "relabel",
+                "time": "21/06/24 10:22:06"
+            },
+            {
+                "page": "relabel",
+                "time": "21/06/24 10:22:11"
+            },
+            {
+                "page": "relabel",
+                "time": "21/06/24 10:22:17"
+            },
+            {
+                "page": "relabel",
+                "time": "21/06/24 10:22:21"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 11:02:38"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 11:02:41"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 11:02:52"
+            },
+            {
+                "page": "labeled",
+                "time": "21/06/24 11:03:00"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 11:03:38"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 11:03:40"
+            },
+            {
+                "page": "labeled",
+                "time": "21/06/24 11:16:15"
+            }
+        ]
+    },
+    "jcg16@nist.gov": {
+        "user_id": 5,
+        "email": "jcg16@nist.gov",
+        "document_ids": [
+            759,
+            2079,
+            1892
+        ],
+        "label": [],
+        "labels": {
+            "759": {
+                "labels": {
+                    "first_label": "Express emotion",
+                    "second_label": "Documenting damage or impacts",
+                    "third_label": "Document what is happening"
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 759
+            },
+            "2079": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "Disaster prevention or mitigation",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 2079
+            },
+            "1892": {
+                "labels": {
+                    "first_label": "Raise awareness of event",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "18/06/24 11:56:36",
+                "document_id": 1892
+            }
+        },
+        "start_time": [
+            "20/06/24 10:42:38",
+            "21/06/24 08:39:46",
+            "21/06/24 08:49:35"
+        ],
+        "date": [],
+        "logoutTime": [
+            "20/06/24 10:48:41",
+            "21/06/24 08:39:58",
+            "21/06/24 08:51:09"
+        ],
+        "pageTimes": [
+            {
+                "page": "homePage",
+                "time": "20/06/24 10:42:38"
+            },
+            {
+                "page": "codebook",
+                "time": "20/06/24 10:42:50"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 10:43:15"
+            },
+            {
+                "page": "labeled",
+                "time": "20/06/24 10:43:25"
+            },
+            {
+                "page": "Document_list",
+                "time": "20/06/24 10:43:28"
+            },
+            {
+                "page": "label",
+                "time": "20/06/24 10:43:30"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 08:39:46"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 08:39:48"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 08:39:51"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 08:39:53"
+            },
+            {
+                "page": "homePage",
+                "time": "21/06/24 08:49:36"
+            },
+            {
+                "page": "codebook",
+                "time": "21/06/24 08:49:38"
+            },
+            {
+                "page": "Document_list",
+                "time": "21/06/24 08:49:41"
+            },
+            {
+                "page": "label",
+                "time": "21/06/24 08:49:46"
+            }
+        ]
+    }
+}
