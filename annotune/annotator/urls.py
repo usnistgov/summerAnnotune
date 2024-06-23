@@ -18,5 +18,8 @@ urlpatterns = [
     path('labeled/<int:user_id>/', views.labeled, name='labeled'),
     path("relabel/<int:document_id>/", views.relabel, name="relabel"),
     path("documents/", views.list_documents, name="documents"),
-    path("append_time/<str:pageName>/", views.append_time, name="append")
+    path("append_time/<str:pageName>/", views.append_time, name="append"),
+    path('download-json/', views.download_json, name='download_json'),
+    path('dashboard', views.dashboard, name="dashboard"),
+    path('dashboard_data', views.dashboard_data, name="dashboard_data")
 ] 

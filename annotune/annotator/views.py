@@ -11,6 +11,8 @@ from pytz import timezone
 eastern = timezone('US/Eastern')
 import os
 print(os.getcwd())
+from django.http import HttpResponse, JsonResponse
+
 
 
 
@@ -115,7 +117,7 @@ def codebook(request, user_id):
                     "Keywords" : Keywords[a],
                     "Example" : Example[a]
             }
-    return render(request, "codebook.html", {"user_id": request.session["user_id"], "codebook":codebook,  "start_time": request.session["start_time"],"time":datetime.datetime.now(eastern)})
+    return render(request, "codebook.html", {"user_id": request.session["user_id"], "codebook":codebook,  "start_time": request.session["start_time"],"time":datetime.datetime.now(eastern), "email":request.session["email"]})
 
 
 def list_documents(request):
@@ -150,15 +152,17 @@ def label(request, document_id):
 
     print(request.session["document_ids"])
     textDocument = all_texts['text'][str(document_id)]
-    response = requests.post(url + "//get_document_information", json={
+    response = requests.post(url + "/get_document_information", json={
                             "user_id": request.session["user_id"],
                             "document_id" : document_id
                             }).json()
+    # print(response["dropdown"])
    
 
 
 
     recommended_labels =response['prediction']
+    recommended_labels = recommended_labels.split("\n")
     # recommended_labels = ["Not relevant", "No code"]
 
     predictedLabel = {}
@@ -178,7 +182,7 @@ def label(request, document_id):
     except:
         predictedLabel["thirdLabel"]= ""
 
-    print(predictedLabel)
+    # print(predictedLabel)
 
     data = {"document": textDocument,
             ""
@@ -226,11 +230,13 @@ def submit_data(request, document_id, labels, pageTime):
 
     email = request.session["email"]
     append_to_json_file(email, label1, label2, label3, document_id, pageTime)
-    # response = requests.post(submit_document, json=data_to_submit).json()
+    response = requests.post(submit_document, json=data_to_submit).json()
+    # print(response)
+    
+    document_id = response["document_id"]
+    
 
-    
-    # document_id = response["document_id"]
-    
+
     with open('./annotator/static/users.json', "r") as user_file:
             name_string = user_file.read()
             information = json.loads(name_string)
@@ -239,7 +245,15 @@ def submit_data(request, document_id, labels, pageTime):
      
     remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
 
-    document_id = random.choice(remainingDocuments)
+    # document_id = random.choice(remainingDocuments)
+    # document_information = url + "get_document_information"
+    # data = {
+    #      "user_id" : request.session["user_id"],
+    #      "document_id": document_id,
+
+    # }
+    # response = requests.post(document_information, json=data).json()
+    # print(response)
      
     textDocument = all_texts['text'][str(document_id)]
     data = {
@@ -394,5 +408,32 @@ def logout_view(request):
     return redirect('login')
 
 
+def download_json(request):
+    # Define the path to the JSON file
+    file_path = "./annotator/static/users.json"
 
+    # Read the JSON file
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+
+    # Create the HttpResponse object with appropriate headers for file download
+    response = HttpResponse(json.dumps(data), content_type='application/json')
+    response['Content-Disposition'] = 'attachment; filename="file.json"'
+
+    return response
+
+def dashboard(request):
+   
+    
+    return render(request, "dashboard.html", {"user_id": request.session["user_id"], "start_time": request.session["start_time"]})
+
+def dashboard_data(request):
+    with open('/Users/danielstephens/Desktop/Nist Summer/user_data (5).json', "r") as user_file:
+        name_string = user_file.read()
+        information = json.loads(name_string)
+    print(information)
+
+    data = information
+    return JsonResponse(data)
+     
 
