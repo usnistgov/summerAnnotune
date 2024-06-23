@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let document_id = document.getElementById('document_id');
     var pageStartDiv = document.getElementById('pageStartTime');
     let pageStart = document.getElementById('pageStartTime').innerText;
+    
 
     
     
@@ -59,6 +60,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 console.log('Success:', data);
                 documentText.textContent = data.textDocument;
                 document_id.textContent = data.document_id;
+                changeAllButtonsCSS();
+                if (data.first_label){
+                    document.getElementById(data.first_label).style.backgroundColor="rgb(163, 227, 245)";
+                    document.getElementById(data.first_label).style.width="200px";
+                    document.getElementById(data.first_label).style.fontSize="x-large";
+                    document.getElementById(data.second_label).style.backgroundColor="rgb(163, 227, 245)";
+                    document.getElementById(data.second_label).style.width="180px";
+                    document.getElementById(data.second_label).style.fontSize="larger";
+                    document.getElementById(data.third_label).style.backgroundColor="rgb(163, 227, 245)";
+                    document.getElementById(data.third_label).style.width="160px";
+                    document.getElementById(data.third_label).style.fontSize="large";
+                }
+                
+               
+
                 // buttons.forEach(button => button.disabled=false);
                 
                 firstManualLabelInput.value ="";
@@ -87,6 +103,20 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
         return cookieValue;
+    }
+
+    function changeAllButtonsCSS() {
+        // Get the div element by its ID
+        var div = document.getElementById('suggestedLabels');
+        
+        // Get all button elements within the div
+        var buttons = div.getElementsByTagName('button');
+        
+        // Loop through all the buttons and apply the desired CSS
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].style.backgroundColor = 'rgb(213, 216, 217)';
+            buttons[i].style.margin = '2px';
+        }
     }
 
 
@@ -240,6 +270,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         });
     });
+
+    
 
 
 
