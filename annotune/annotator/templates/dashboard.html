@@ -11,7 +11,7 @@
         }
         .chart-card {
             width: 100%;
-            max-width: 800px;
+            /* max-width: 600px; */
         }
         .card-title {
             font-size: 1.1rem;
@@ -35,9 +35,9 @@
     <div class="container mt-4">
         <div>
             <h1 class="text-center">Annotune Monitoring Dashboard</h1>
-        <div class="timer-container">
+        <!-- <div class="timer-container">
             <div style="float: right;"><h3 id="timer"></h3></div>
-        </div>
+        </div> -->
         
 
         <!-- Top Cards -->
@@ -108,11 +108,19 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Time</h5>
+                        <p id="timer" class="card-text"></p>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <!-- Plots Layout -->
         <div class="row mt-4 chart-container">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="card chart-card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Number of Documents per Label</h5>
@@ -120,10 +128,7 @@
                     </div>
                 </div>
             </div>
-        </div>
-
-        <div class="row mt-4 chart-container">
-            <div class="col-md-12">
+            <div class="col-md-6">
                 <div class="card chart-card">
                     <div class="card-body">
                         <h5 class="card-title text-center">Time Spent per Page</h5>
@@ -132,6 +137,10 @@
                 </div>
             </div>
         </div>
+
+        <!-- <div class="row mt-4 chart-container">
+            
+        </div> -->
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

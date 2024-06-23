@@ -34,9 +34,28 @@
         
     
         <div class="float-end">
-            <!-- <a href="{% url 'documents' %}" id="documents" class="btn btn-outline-secondary btn-lg nav-icon m-1">
-                Documents <i class="fas fa-arrow-right"></i>
-            </a> -->
+            {% if email == "juan.fung@nist.gov"%}
+            <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Dashboard <i class="fas fa-arrow-right"></i>
+            </a>
+            {% endif%}
+
+            {% if email == "danystevo@gmail.com"%}
+            <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Dashboard <i class="fas fa-arrow-right"></i>
+            </a>
+            {% endif%}
+
+            {% if email == "christina.gore@nist.gov"%}
+            <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Dashboard <i class="fas fa-arrow-right"></i>
+            </a>
+            {% endif%}
+
+
+            <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Dashboard <i class="fas fa-arrow-right"></i>
+            </a>
             <a href="{% url 'codebook' user_id%}" id="codebook" class="btn btn-outline-secondary btn-lg nav-icon m-1">
                 Codebook <i class="fas fa-arrow-right"></i>
             </a>
