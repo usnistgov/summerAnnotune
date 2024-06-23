@@ -1,0 +1,367 @@
+{% extends "base.html" %}
+{% block extra_head %}
+{% load static %}
+<title>Annotune Monitoring Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .chart-container {
+            display: flex;
+            justify-content: center;
+        }
+        .chart-card {
+            width: 100%;
+            max-width: 800px;
+        }
+        .card-title {
+            font-size: 1.1rem;
+        }
+        .card-text {
+            font-size: 1rem;
+        }
+        .form-select {
+            font-size: 0.9rem;
+        }
+    </style>
+{% endblock%}
+    
+{% block content %}
+<div id="pageName" hidden> Dashboard</div>
+
+   
+</div>
+<div id="pageStartTime" hidden>{{pageStart}}</div>
+<div id="pageName" hidden>Document_list</div>
+    <div class="container mt-4">
+        <div>
+            <h1 class="text-center">Annotune Monitoring Dashboard</h1>
+        <div class="timer-container">
+            <div style="float: right;"><h3 id="timer"></h3></div>
+        </div>
+        
+
+        <!-- Top Cards -->
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">User Email</h5>
+                        <select id="userEmailDropdown" class="form-select">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Date</h5>
+                        <select id="dateDropdown" class="form-select">
+                            <!-- Options will be populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Documents Labeled</h5>
+                        <p id="documentsLabeled" class="card-text">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Labeling Rate</h5>
+                        <p id="labelingRate" class="card-text">0 docs/day</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Time Spent Labeling</h5>
+                        <p id="timeSpentLabeling" class="card-text">0 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Average Time per Session</h5>
+                        <p id="sessionTime" class="card-text">0 minutes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Total Time Spent</h5>
+                        <p id="totalTimeSpent" class="card-text">0 hours</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Plots Layout -->
+        <div class="row mt-4 chart-container">
+            <div class="col-md-12">
+                <div class="card chart-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Number of Documents per Label</h5>
+                        <canvas id="plot1"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4 chart-container">
+            <div class="col-md-12">
+                <div class="card chart-card">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">Time Spent per Page</h5>
+                        <canvas id="plot2"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let contextData = null;
+        let plot1Chart = null;
+        let plot2Chart = null;
+
+        // Example usage in an async function
+        async function getData() {
+            const url = '/dashboard_data';
+            try {
+                const response = await fetch(url);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                contextData = await response.json();
+                initializeDropdowns();
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        // Initialize dropdowns and charts
+        document.addEventListener("DOMContentLoaded", getData);
+
+        function initializeDropdowns() {
+            const userEmailDropdown = document.getElementById('userEmailDropdown');
+            const dateDropdown = document.getElementById('dateDropdown');
+            const keys = Object.keys(contextData);
+
+            // Populate User Email dropdown
+            keys.forEach(email => {
+                const option = document.createElement('option');
+                option.value = email;
+                option.text = email;
+                userEmailDropdown.appendChild(option);
+            });
+
+            // Event listener for User Email dropdown
+            userEmailDropdown.addEventListener('change', () => {
+                const selectedEmail = userEmailDropdown.value;
+                const userData = contextData[selectedEmail];
+
+                const allTimes = Array.from(new Set(Object.values(userData.labels).map(entry => entry.time)));
+                const allDates = allTimes.map(time => time.split(' ')[0]);
+
+                // Populate Date dropdown
+                dateDropdown.innerHTML = ''; // Clear existing options
+                allDates.forEach(date => {
+                    const option = document.createElement('option');
+                    option.value = date;
+                    option.text = date;
+                    dateDropdown.appendChild(option);
+                });
+
+                // Update charts and cards based on selected email and date
+                dateDropdown.dispatchEvent(new Event('change'));
+            });
+
+            // Event listener for Date dropdown
+            dateDropdown.addEventListener('change', () => {
+                const selectedEmail = userEmailDropdown.value;
+                const selectedDate = dateDropdown.value;
+                const userData = contextData[selectedEmail];
+                const filteredLabels = Object.values(userData.labels).filter(entry => entry.time.split(' ')[0] === selectedDate);
+
+                // Update metrics and charts
+                updateMetricsAndCharts(userData, filteredLabels);
+            });
+
+            // Trigger initial population
+            userEmailDropdown.dispatchEvent(new Event('change'));
+        }
+
+        function parseDate(dateString) {
+            const [date, time] = dateString.split(' ');
+            const [day, month, year] = date.split('/');
+            const [hours, minutes, seconds] = time.split(':');
+            return new Date(`20${year}-${month}-${day}T${hours}:${minutes}:${seconds}`);
+        }
+
+        function calculateTotalTime(startTimes, logoutTimes) {
+            // Ensure both arrays have the same length
+            const length = Math.min(startTimes.length, logoutTimes.length);
+            startTimes = startTimes.slice(0, length);
+            logoutTimes = logoutTimes.slice(0, length);
+
+            let totalMilliseconds = 0;
+
+            for (let i = 0; i < length; i++) {
+                const startTime = parseDate(startTimes[i]);
+                const logoutTime = parseDate(logoutTimes[i]);
+                const timeSpent = logoutTime - startTime; // Difference in milliseconds
+                totalMilliseconds += timeSpent;
+            }
+
+            // Convert milliseconds to hours, minutes, and seconds
+            const totalSeconds = Math.floor(totalMilliseconds / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            return { hours, minutes, seconds };
+        }
+
+        function countDocumentsPerLabel(labels) {
+            const labelCounts = {};
+
+            labels.forEach(doc => {
+                Object.values(doc.labels).forEach(label => {
+                    if (label) {
+                        labelCounts[label] = (labelCounts[label] || 0) + 1;
+                    }
+                });
+            });
+
+            return labelCounts;
+        }
+
+        function calculateTimeSpent(pageTimes) {
+            const timeSpent = {};
+
+            for (let i = 0; i < pageTimes.length - 1; i++) {
+                const currentPage = pageTimes[i].page;
+                const currentTime = parseDate(pageTimes[i].time);
+                const nextTime = parseDate(pageTimes[i + 1].time);
+
+                const timeDiff = (nextTime - currentTime) / 1000 / 60; // Difference in minutes
+
+                if (!timeSpent[currentPage]) {
+                    timeSpent[currentPage] = 0;
+                }
+
+                timeSpent[currentPage] += timeDiff;
+            }
+
+            return timeSpent;
+        }
+
+        function calculateAverageSessionTime(startTimes, logoutTimes) {
+            // Ensure both arrays have the same length
+            const length = Math.min(startTimes.length, logoutTimes.length);
+            startTimes = startTimes.slice(0, length);
+            logoutTimes = logoutTimes.slice(0, length);
+
+            let totalMilliseconds = 0;
+            let sessionCount = 0;
+
+            for (let i = 0; i < length; i++) {
+                const startTime = parseDate(startTimes[i]);
+                const logoutTime = parseDate(logoutTimes[i]);
+                const sessionTime = logoutTime - startTime; // Difference in milliseconds
+                totalMilliseconds += sessionTime;
+                sessionCount++;
+            }
+
+            const averageMilliseconds = totalMilliseconds / sessionCount;
+            const totalMinutes = averageMilliseconds / 1000 / 60; // Convert to minutes
+
+            return totalMinutes;
+        }
+
+        function updateMetricsAndCharts(userData, filteredLabels) {
+            const allDates = Array.from(new Set(filteredLabels.map(entry => entry.time.split(' ')[0])));
+            const totalTimeSpent = calculateTotalTime(userData.start_time, userData.logoutTime);
+            const averageSessionTime = calculateAverageSessionTime(userData.start_time, userData.logoutTime);
+
+            // Populate the top cards
+            document.getElementById('documentsLabeled').textContent = filteredLabels.length;
+            document.getElementById('labelingRate').textContent = (Array.from(new Set(userData.document_ids)).length / allDates.length).toFixed(2) + ' docs/day';
+            document.getElementById('timeSpentLabeling').textContent = `${totalTimeSpent.hours} hours ${totalTimeSpent.minutes} minutes`;
+            document.getElementById('sessionTime').textContent = `${averageSessionTime.toFixed(2)} minutes`;
+            document.getElementById('totalTimeSpent').textContent = `${totalTimeSpent.hours} hours`;
+
+            // Prepare data for the chart
+            const labelCounts = countDocumentsPerLabel(filteredLabels);
+            const chartLabels = Object.keys(labelCounts);
+            const chartData = Object.values(labelCounts);
+
+            // Update the first chart
+            if (plot1Chart) plot1Chart.destroy();
+            plot1Chart = new Chart(document.getElementById('plot1').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: chartLabels,
+                    datasets: [{
+                        label: 'Number of Documents',
+                        data: chartData,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            // Prepare data for the second chart
+            const timeSpent = calculateTimeSpent(userData.pageTimes);
+            const chart2Labels = Object.keys(timeSpent);
+            const chart2Data = Object.values(timeSpent);
+
+            // Update the second chart
+            if (plot2Chart) plot2Chart.destroy();
+            plot2Chart = new Chart(document.getElementById('plot2').getContext('2d'), {
+                type: 'bar',
+                data: {
+                    labels: chart2Labels,
+                    datasets: [{
+                        label: 'Time Spent (minutes)',
+                        data: chart2Data,
+                        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+{% endblock %}

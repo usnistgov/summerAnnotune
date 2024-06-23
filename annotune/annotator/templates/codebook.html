@@ -1,8 +1,6 @@
 {% extends "base.html" %}
 {% block extra_head %}
 {% load static %}
-
-{% endblock%}
 <style>
     table {
                 width: 100%;
@@ -31,6 +29,8 @@
     }
 
 </style>
+{% endblock%}
+
 
 
 
@@ -47,7 +47,13 @@
 
         <div id="pageStartTime" >{{pageStart}}</div>
         <div id="pageName" hidden>codebook</div>
-
+        
+        {% if  email == "danystevo@gmaill.com" %}
+        <a href="{% url 'download_json' %}" id="codebook" class="btn btn-outline-secondary btn-lg nav-icon">
+            RESULTS <i class="fas fa-arrow-right"></i>
+        </a>
+        {% endif %}
+        
         <a href="{% url 'documents' %}" id="codebook" class="btn btn-outline-secondary btn-lg nav-icon">
             Documents <i class="fas fa-arrow-right"></i>
         </a>
@@ -74,6 +80,7 @@
             {% endfor %}
         </tbody>
     </table>
+    
 </div>
   
 

@@ -91,7 +91,32 @@
         const minutes = pad(Math.floor((elapsedTime % 3600000) / 60000));
         const seconds = pad(Math.floor((elapsedTime % 60000) / 1000));
         document.getElementById('timer').textContent = `${hours}:${minutes}:${seconds}`;
-    }
+        }
+
+        const TIMEOUT_PERIOD = 5 * 60 * 1000; // 5 minutes
+
+        let timeoutId;
+
+        // Function to log out the user
+        function logoutUser() {
+            alert("You have been logged out due to inactivity.");
+            window.location.href = '{% url "logout" %}'; // Redirect to Django logout view
+        }
+
+        // Function to reset the timeout
+        function resetTimeout() {
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(logoutUser, TIMEOUT_PERIOD);
+        }
+
+        // Add event listeners to detect user activity
+        ['click', 'mousemove', 'keypress', 'scroll', 'touchstart'].forEach(event => {
+            window.addEventListener(event, resetTimeout, false);
+        });
+
+        // Initialize the timeout on page load
+        resetTimeout();
+
 
     
 
