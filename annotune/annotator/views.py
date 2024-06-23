@@ -142,7 +142,7 @@ def list_documents(request):
     
   
 
-    return render(request, "documents.html", {"all_texts": a, "clusters": d, "keywords":b, "recommended_doc_id" :recommended, "user_id":request.session["user_id"], "time":datetime.datetime.now(eastern), "start_time" :request.session["start_time"]})
+    return render(request, "documents.html", {"all_texts": a, "clusters": d, "keywords":b, "recommended_doc_id" :recommended, "user_id":request.session["user_id"], "time":datetime.datetime.now(eastern), "start_time" :request.session["start_time"], "email": request.session["email"]})
 
 
 
@@ -229,7 +229,7 @@ def submit_data(request, document_id, labels, pageTime):
     # print(data_to_submit)
 
     email = request.session["email"]
-    append_to_json_file(email, label1, label2, label3, document_id, pageTime)
+    append_to_json_file(email, label1, label2, label3, document_id, time)
     response = requests.post(submit_document, json=data_to_submit).json()
     # print(response)
     
@@ -246,20 +246,24 @@ def submit_data(request, document_id, labels, pageTime):
     remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
 
     # document_id = random.choice(remainingDocuments)
-    # document_information = url + "get_document_information"
-    # data = {
-    #      "user_id" : request.session["user_id"],
-    #      "document_id": document_id,
+    document_information = url + "get_document_information"
+    data = {
+         "user_id" : request.session["user_id"],
+         "document_id": document_id,
 
-    # }
-    # response = requests.post(document_information, json=data).json()
-    # print(response)
+    }
+    response = requests.post(document_information, json=data).json()
+    
+    recommended_labels = response["prediction"].split("\n")
      
     textDocument = all_texts['text'][str(document_id)]
     data = {
         'textDocument':textDocument,
         'document_id':document_id,
-        "pageStart": str(datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S"))
+        "pageStart": str(datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S")),
+        "first_label": recommended_labels[0],
+        "second_label": recommended_labels[1],
+        "third_label": recommended_labels[2]
     }
     return JsonResponse(data)
 
@@ -424,14 +428,13 @@ def download_json(request):
 
 def dashboard(request):
    
-    
     return render(request, "dashboard.html", {"user_id": request.session["user_id"], "start_time": request.session["start_time"]})
 
 def dashboard_data(request):
     with open('/Users/danielstephens/Desktop/Nist Summer/user_data (5).json', "r") as user_file:
         name_string = user_file.read()
         information = json.loads(name_string)
-    print(information)
+    # print(information)
 
     data = information
     return JsonResponse(data)
