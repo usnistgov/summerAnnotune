@@ -33,13 +33,25 @@
 <div id="pageStartTime" hidden>{{pageStart}}</div>
 <div id="pageName" hidden>Document_list</div>
     <div class="container mt-4">
+        <h1 class="text-center">Annotune Monitoring Dashboard</h1>
+        <div class="float-end">
+            <a href="{% url 'documents' %}" id="documents" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Documents <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="{% url 'codebook' user_id%}" id="codebook" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Codebook <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="{% url 'labeled' user_id%}" id="nextButton" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Labeled <i class="fas fa-arrow-right"></i>
+            </a>
+        </div>
         <div>
-            <h1 class="text-center">Annotune Monitoring Dashboard</h1>
+            
         <!-- <div class="timer-container">
             <div style="float: right;"><h3 id="timer"></h3></div>
         </div> -->
         
-
+    
         <!-- Top Cards -->
         <div class="row mt-3">
             <div class="col-md-6">

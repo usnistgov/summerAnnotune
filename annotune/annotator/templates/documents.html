@@ -38,11 +38,19 @@
             <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
                 Dashboard <i class="fas fa-arrow-right"></i>
             </a>
+            <a href="{% url 'download_json' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Download Data <i class="fas fa-arrow-right"></i>
+            </a>
+
+
             {% endif%}
 
             {% if email == "danystevo@gmail.com"%}
             <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
                 Dashboard <i class="fas fa-arrow-right"></i>
+            </a>
+            <a href="{% url 'download_json' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Download Data <i class="fas fa-arrow-right"></i>
             </a>
             {% endif%}
 
@@ -50,12 +58,11 @@
             <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
                 Dashboard <i class="fas fa-arrow-right"></i>
             </a>
+            <a href="{% url 'download_json' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
+                Download Data <i class="fas fa-arrow-right"></i>
+            </a>
             {% endif%}
 
-
-            <a href="{% url 'dashboard' %}" id="dashboard" class="btn btn-outline-secondary btn-lg nav-icon m-1">
-                Dashboard <i class="fas fa-arrow-right"></i>
-            </a>
             <a href="{% url 'codebook' user_id%}" id="codebook" class="btn btn-outline-secondary btn-lg nav-icon m-1">
                 Codebook <i class="fas fa-arrow-right"></i>
             </a>

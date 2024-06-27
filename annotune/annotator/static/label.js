@@ -1,112 +1,21 @@
 document.addEventListener('DOMContentLoaded', function () {
-        
     const manualsubmit = document.getElementById('manualLabelSubmit');
     const documentText = document.getElementById('documentText');
     const userId = document.getElementById("user_id").innerText;
-    var firstManualLabelInput = document.getElementById("firstManualLabelInput");
-    var secondManualLabelInput = document.getElementById("secondManualLabelInput");
-    var thirdManualLabelInput = document.getElementById("thirdManualLabelInput");
+    const firstManualLabelInput = document.getElementById("firstManualLabelInput");
+    const secondManualLabelInput = document.getElementById("secondManualLabelInput");
+    const thirdManualLabelInput = document.getElementById("thirdManualLabelInput");
     const nextButton = document.getElementById('nextButton');
-    let document_id = document.getElementById('document_id');
-    var pageStartDiv = document.getElementById('pageStartTime');
+    const previousButton = document.getElementById('previousButton');
+    const document_id = document.getElementById('document_id');
+    const pageStartDiv = document.getElementById('pageStartTime');
     let pageStarter = document.getElementById('pageStartTime').innerText;
-    var pageStart = dateConvert(pageStarter);
-    // console.log(sample_date)
-    
-
-    
-    
-
+    let pageStart = dateConvert(pageStarter);
     let documentsData = [];
     let currentIndex = -1;
-    
 
-    function sendData() {
-        
-        const label1 = firstManualLabelInput.value.trim();
-        let label2 = '';
-        let label3 = '';
-
-        if (secondManualLabelInput) {
-            label2 = secondManualLabelInput.value.trim();
-        }
-
-        if (thirdManualLabelInput) {
-            label3 = thirdManualLabelInput.value.trim();
-        }
-
-        let labels = label1;
-
-        if (label2) {
-            labels += " and " + label2;
-        }
-
-        if (label3) {
-            labels += " and " + label3;
-        }
-        // console.log(labels)
-        const documentId = document.getElementById('document_id').textContent.trim();
-        const now = new Date();
-        const elapsedPageTime = now - pageStart;
-        
-        let mm = Math.floor(elapsedPageTime / 1000) % 60;
-        console.log(mm)
-
-
-
-        // documentId = document_id.textContent;
-
-
-        const dataToSend = JSON.stringify({
-            document_id: documentId,
-            label1: label1,
-            label2: label2,
-            label3: label3,
-            user_id: userId,
-            response_time: new Date().toISOString()
-        });
-
-        
-
-        fetch(`/submit-data/${documentId}/${labels}/${mm}/`, {
-            method: "POST",
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRFToken': getCookie('csrftoken')
-            },
-            body: dataToSend
-        })
-            .then(response => response.json())
-            .then(data => {
-                // console.log('Success:', data);
-                documentText.textContent = data.textDocument;
-                document_id.textContent = data.document_id;
-                changeAllButtonsCSS();
-                console.log(data)
-                if (data.first_label != ""){
-                    document.getElementById(data.first_label).style.backgroundColor="rgb(0, 195, 248);";
-                }
-
-                if (data.second_label!=""){
-                    document.getElementById(data.second_label).style.backgroundColor="rgb(137, 229, 255);";
-
-                }
-                if (data.third_label!=""){
-                    document.getElementById(data.third_label).style.backgroundColor="rgb(195, 242, 255);";
-                }
-                // buttons.forEach(button => button.disabled=false);
-                
-                firstManualLabelInput.value ="";
-                secondManualLabelInput.value="";
-                thirdManualLabelInput.value="";
-                // manualsubmit.disabled=true;
-                DocumentAlert(data.document_id);
-            })
-            .catch(error => console.error('Error:', error));
-    }
-
-    manualsubmit.addEventListener('click', sendData);
-
+    // Disable the submit button initially
+    manualsubmit.disabled = true;
 
     // Function to get CSRF token
     function getCookie(name) {
@@ -125,174 +34,148 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function changeAllButtonsCSS() {
-        // Get the div element by its ID
-        var div = document.getElementById('suggestedLabels');
-        
-        // Get all button elements within the div
-        var buttons = div.getElementsByTagName('button');
-        
-        // Loop through all the buttons and apply the desired CSS
-        for (var i = 0; i < buttons.length; i++) {
-            buttons[i].style.backgroundColor = 'rgb(213, 216, 217)';
-            buttons[i].style.margin = '2px';
+        const div = document.getElementById('suggestedLabels');
+        const buttons = div.getElementsByTagName('button');
+        for (let button of buttons) {
+            button.style.backgroundColor = 'rgb(213, 216, 217)';
+            button.style.margin = '2px';
         }
     }
 
-
-
-    // function checkButtonEnabled() {
-    //     const manualsubmit = document.getElementById('manualLabelSubmit');
-    //     if ((label1Value===0) || (label2Value ===0) ||(label3Value ===0)){
-    //     manualsubmit.disabled = true;
-    //     }
-    //     else {
-    //     manualsubmit.disabled = false;
-    //     }
-    // };
-
-
-    // let label1Value=0;
-    // let label2Value=0;
-    // let label3Value=0;
-
-    // firstManualLabelInput.addEventListener("input", (e) => {
-    //     label1Value = e.target.value.length;
-    //     manualsubmit.disabled=true;
-    //     checkButtonEnabled();
-    // });
-
-    // secondManualLabelInput.addEventListener("input", (e) => {
-    //     label2Value = e.target.value.length;
-    //     manualsubmit.disabled=true;
-    //     checkButtonEnabled();
-    // });
-    // thirdManualLabelInput.addEventListener("input", (e) => {
-    //     label3Value = e.target.value.length;
-    //     manualsubmit.disabled=true;
-    //     checkButtonEnabled();
-    // });
-
-
-    nextButton.addEventListener('click', function (event) {
-        event.preventDefault();
-            // No next document, call skip_document view
-            fetch('/get_all_documents/')
-            .then(response => response.json())
-            .then(data => {
-                documentsData = data.document_ids;
-                // 
-                // console.log(data)
-
-
-                // Load the previous document
-                if (currentIndex > 0) {
-                    currentIndex--;
-
-                    loadDocument(documentsData[currentIndex]);
-                    DocumentAlert(documentsData[currentIndex]);
-    
-                }
-                else{
-                    fetch('/skip_document/')
-                    .then(response => response.json())
-                    .then(data => {
-                        currentIndex =  - 1;
-                        loadDocument(data.document_id);
-                        DocumentAlert(data.document_id);
-                    }
-                        )}
-                    
-                    });
-                });
-
-
-            
-            
-
-
-    previousButton.addEventListener('click', function (event) {
-        event.preventDefault();
-
-        fetch('/get_all_documents/')
-            .then(response => response.json())
-            .then(data => {
-                documentsData = data.document_ids;
-                console.log(data);
-                // pageStartDiv.innerText = data.pageStart;
-                
-                
-
-                // Load the previous document
-                if (currentIndex < documentsData.length - 1) {
-                    currentIndex++;
-                    console.log('Current Index (Previous):', currentIndex);
-                    const documentData = documentsData[currentIndex];
-                    loadDocument(documentData);
-                    DocumentAlert(documentData);
-
-                   
-                }
-            })
-            .catch(error => console.error('Error fetching documents data:', error));
-        });
-
-    function loadDocument(index){
-        const url = `/fetch_data/${userId}/${index}/`;
-            fetch(url)
-                .then(response => response.json())
-                .then(data => {
-                    
-                    console.log('Success:', data);
-                    documentText.textContent = data.textDocument;
-                    document_id.textContent = data.document_id;
-                    pageStartDiv.innerText = data.pageStart;
-                    firstManualLabelInput.value ="";
-                    secondManualLabelInput.value="";
-                    thirdManualLabelInput.value="";
-                
-                    
-                });
-    }
-
-    
-
     function DocumentAlert(document_id) {
-        var alertDiv = document.getElementById('myalert')
+        const alertDiv = document.getElementById('myalert');
         alertDiv.style.display = 'flex'; // Show the alert
         alertDiv.innerText = `You are viewing document ${document_id}`;
-        // console.log(alert_value);
         setTimeout(() => {
             alertDiv.style.display = 'none'; // Hide the alert after 3 seconds
         }, 3000);
-    
     }
+
+    function loadDocument(index) {
+        const url = `/fetch_data/${userId}/${index}/`;
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                documentText.textContent = data.textDocument;
+                document_id.textContent = data.document_id;
+                pageStartDiv.innerText = data.pageStart;
+                firstManualLabelInput.value = "";
+                secondManualLabelInput.value = "";
+                thirdManualLabelInput.value = "";
+                manualsubmit.disabled = true; // Disable the submit button when loading a new document
+            })
+            .catch(error => console.error('Error fetching document:', error));
+    }
+
+    function sendData() {
+        const label1 = firstManualLabelInput.value.trim();
+        const label2 = secondManualLabelInput ? secondManualLabelInput.value.trim() : '';
+        const label3 = thirdManualLabelInput ? thirdManualLabelInput.value.trim() : '';
+
+        const labels = [label1, label2, label3].filter(Boolean).join(" and ");
+
+        const documentId = document.getElementById('document_id').textContent.trim();
+        const now = new Date();
+        pageStarter = pageStartDiv.innerText;
+        pageStart = dateConvert(pageStarter);
+        const elapsedPageTime = now - pageStart;
+        const mm = Math.floor(elapsedPageTime / 1000) % 60;
+
+        const dataToSend = JSON.stringify({
+            document_id: documentId,
+            label1: label1,
+            label2: label2,
+            label3: label3,
+            user_id: userId,
+            response_time: new Date().toISOString()
+        });
+
+        fetch(`/submit-data/${documentId}/${labels}/${mm}/`, {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: dataToSend
+        })
+            .then(response => response.json())
+            .then(data => {
+                documentText.textContent = data.textDocument;
+                document_id.textContent = data.document_id;
+                pageStartDiv.innerText = data.pageStart;
+                changeAllButtonsCSS();
+
+                if (data.first_label) {
+                    document.getElementById(data.first_label).style.backgroundColor = "rgb(0, 195, 248)";
+                }
+                if (data.second_label) {
+                    document.getElementById(data.second_label).style.backgroundColor = "rgb(137, 229, 255)";
+                }
+                if (data.third_label) {
+                    document.getElementById(data.third_label).style.backgroundColor = "rgb(195, 242, 255)";
+                }
+
+                firstManualLabelInput.value = "";
+                secondManualLabelInput.value = "";
+                thirdManualLabelInput.value = "";
+                manualsubmit.disabled = true; // Disable the submit button after submitting
+                DocumentAlert(data.document_id);
+            })
+            .catch(error => console.error('Error:', error));
+    }
+
+    function fetchDataAndLoadDocuments(url) {
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                documentsData = data.document_ids;
+                if (currentIndex > 0) {
+                    currentIndex--;
+                    loadDocument(documentsData[currentIndex]);
+                    DocumentAlert(documentsData[currentIndex]);
+                } else {
+                    fetch('/skip_document/')
+                        .then(response => response.json())
+                        .then(data => {
+                            currentIndex = -1;
+                            loadDocument(data.document_id);
+                            DocumentAlert(data.document_id);
+                        })
+                        .catch(error => console.error('Error skipping document:', error));
+                }
+            })
+            .catch(error => console.error('Error fetching documents data:', error));
+    }
+
+    manualsubmit.addEventListener('click', sendData);
+
+    nextButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        fetchDataAndLoadDocuments('/get_all_documents/');
+    });
+
+    previousButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        fetchDataAndLoadDocuments('/get_all_documents/');
+    });
+
+    firstManualLabelInput.addEventListener('input', function () {
+        manualsubmit.disabled = !firstManualLabelInput.value.trim(); // Enable/disable based on input
+    });
 
     const buttonsContainer = document.getElementById('suggestedLabels');
     const buttons = buttonsContainer.querySelectorAll('.btn');
-    // console.log(buttons); // Debugging line to ensure buttons are selected
-    const inputs = [
-        document.getElementById('firstManualLabelInput'),
-        document.getElementById('secondManualLabelInput'),
-        document.getElementById('thirdManualLabelInput')
-    ];
+    const inputs = [firstManualLabelInput, secondManualLabelInput, thirdManualLabelInput];
 
     buttons.forEach(button => {
         button.addEventListener('click', function () {
-            // console.log(`Button ${button.value} clicked`); // Debugging line to ensure event listener is attached
             for (let input of inputs) {
                 if (!input.value) {
                     input.value = button.innerText;
-                    // console.log(`Input filled with ${button.innerText}`); // Debugging line to check input fill
+                    manualsubmit.disabled = !firstManualLabelInput.value.trim(); // Enable/disable based on input
                     break;
                 }
             }
-
         });
     });
-
-    
-
-
-
-
 });

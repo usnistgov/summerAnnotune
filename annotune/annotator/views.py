@@ -19,11 +19,12 @@ from django.http import HttpResponse, JsonResponse
 
 url =  "http://127.0.0.1:4000/"
 codebook_data = pd.read_excel("./annotator/data/codebook.xlsx")
-all_texts = json.load(open("./annotator/data/nist_disaster_tweets.json"))
+all_texts = json.load(open("./annotator/data/processed_nist_disaster_tweets.json"))
 # Create your views here.
+
 def login(request):
 
-    if request.method == 'POST':
+    if request.method == 'POST': 
 
         
         email = request.POST['email']
@@ -156,33 +157,29 @@ def label(request, document_id):
                             "user_id": request.session["user_id"],
                             "document_id" : document_id
                             }).json()
-    # print(response["dropdown"])
-   
-
-
 
     recommended_labels =response['prediction']
     recommended_labels = recommended_labels.split("\n")
-    # recommended_labels = ["Not relevant", "No code"]
+
 
     predictedLabel = {}
 
     try:
-        predictedLabel["firstLabel"] = recommended_labels[0]
+        predictedLabel["firstLabel"] = recommended_labels[0].strip().strip()
     except:
         predictedLabel["firstLabel"]= ""
 
     try:
-        predictedLabel["secondLabel"] = recommended_labels[1]
+        predictedLabel["secondLabel"] = recommended_labels[1].strip().strip()
     except:
         predictedLabel["secondLabel"]= ""
 
     try:
-        predictedLabel["thirdLabel"] = recommended_labels[2]
+        predictedLabel["thirdLabel"] = recommended_labels[2].strip().strip()
     except:
         predictedLabel["thirdLabel"]= ""
 
-    # print(predictedLabel)
+    print(predictedLabel)
 
     data = {"document": textDocument,
             ""
@@ -220,7 +217,7 @@ def submit_data(request, document_id, labels, pageTime):
     except:
         label3 =""
 
-    print(label1)
+    # print(label1)
 
     data_to_submit = {
             "document_id": document_id,
@@ -248,8 +245,9 @@ def submit_data(request, document_id, labels, pageTime):
      
     remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
 
-    document_id = random.choice(remainingDocuments)
-    print(document_id)
+    if document_id not in remainingDocuments:
+         document_id = random.choice(remainingDocuments)
+    # print(document_id)
     document_information = url + "get_document_information"
     data = {
          "user_id" : request.session["user_id"],
@@ -265,16 +263,16 @@ def submit_data(request, document_id, labels, pageTime):
     second_recommended = ""
     third_recommended = ""
     if recommended_labels[0]:
-         first_recommended = recommended_labels[0].strip()
+         first_recommended = recommended_labels[0].strip().strip()
 
     try:
-        second_recommended = recommended_labels[1].strip()
+        second_recommended = recommended_labels[1].strip().strip()
 
     except:
          pass
      
     try:
-        third_recommended = recommended_labels[2].strip()
+        third_recommended = recommended_labels[2].strip().strip()
 
     except:
          pass
@@ -305,14 +303,12 @@ def skip_document(request):
 
 
 def fetch_data(request, user_id, document_id):
-    # labeledDocuments = request.session["document_ids"]
-    # remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
+    labeledDocuments = request.session["document_ids"]
+    remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
     # random_number = random.random()
-    # if (document_id in labeledDocuments):
-    #     document_id = random.choice(remainingDocuments)
-    # elif  random_number < 0.8:
-    #      document_id = random.choice(remainingDocuments)
-    # document_id = random.choice(remainingDocuments)
+    if (document_id not in remainingDocuments):
+        document_id = random.choice(remainingDocuments)
+
     textDocument = all_texts['text'][str(document_id)]
     data = {
         'textDocument':textDocument,
@@ -346,7 +342,7 @@ def labeled(request, user_id):
     aaaa = information[request.session["email"]]["document_ids"]
 
     all_text  = sort_labeled(all_texts, aaaa)
-    print(all_labelled_data)
+    # print(all_labelled_data)
     
     data = {
         "all_texts":all_text,
@@ -365,17 +361,17 @@ def relabel(request, document_id):
     predictedLabel = {}
 
     try:
-        predictedLabel["firstLabel"] = recommended_labels[0]
+        predictedLabel["firstLabel"] = recommended_labels[0].strip()
     except:
         predictedLabel["firstLabel"]= ""
 
     try:
-        predictedLabel["secondLabel"] = recommended_labels[1]
+        predictedLabel["secondLabel"] = recommended_labels[1].strip()
     except:
         predictedLabel["secondLabel"]= ""
 
     try:
-        predictedLabel["thirdLabel"] = recommended_labels[2]
+        predictedLabel["thirdLabel"] = recommended_labels[2].strip()
     except:
         predictedLabel["thirdLabel"]= ""
 
