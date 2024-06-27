@@ -537,7 +537,7 @@ def get_document_data(url, user_id, document_id, all_texts):
 
 
 
-def append_to_json_file(email, label1, label2, label3, document_id, times):
+def append_to_json_file(email, label1, label2, label3, document_id, times, pageTime):
     import os
     import json
     file_path="./annotator/static/users.json"
@@ -558,6 +558,7 @@ def append_to_json_file(email, label1, label2, label3, document_id, times):
                 "third_label":label3
             },
             "time": times,
+            "label_time": pageTime,
             "document_id": document_id
         }
 

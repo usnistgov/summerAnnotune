@@ -131,7 +131,7 @@
             <div class="col-md-6">
                 <div class="card chart-card">
                     <div class="card-body">
-                        <h5 class="card-title text-center">Time Spent per Page</h5>
+                        <h5  v class="card-title text-center">Time Spent per Page</h5>
                         <canvas id="plot2"></canvas>
                     </div>
                 </div>
@@ -187,10 +187,12 @@
 
                 const allTimes = Array.from(new Set(Object.values(userData.labels).map(entry => entry.time)));
                 const allDates = allTimes.map(time => time.split(' ')[0]);
+                console.log(Array.from(new Set(allDates)))
+
 
                 // Populate Date dropdown
                 dateDropdown.innerHTML = ''; // Clear existing options
-                allDates.forEach(date => {
+                Array.from(new Set(allDates)).forEach(date => {
                     const option = document.createElement('option');
                     option.value = date;
                     option.text = date;

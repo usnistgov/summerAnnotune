@@ -60,7 +60,7 @@
 
 
         const dateString = document.getElementById("timers").innerText;  
-        console.log("This is the date string: ", dateString)
+        // console.log("This is the date string: ", dateString)
         let startTime = dateConvert(dateString);
         let timerInterval;
 
@@ -71,7 +71,7 @@
         function dateConvert(anyDateString){
         // Split the date and time parts
         const [datePart, timePart] = anyDateString.split(' ');
-        console.log(datePart, timePart)
+        // console.log(datePart, timePart)
         // Split the date into day, month, and year
         const [day, month, year] = datePart.split('/').map(part => parseInt(part, 10));
         // Split the time into hours, minutes, and seconds
