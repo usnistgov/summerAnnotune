@@ -203,6 +203,7 @@ def submit_data(request, document_id, labels, pageTime):
     request.session["document_ids"].append(document_id)
     time=datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S")
     document_id = document_id
+    print(labels)
     totalLabels = labels.split("and")
     try:
         label1 = totalLabels[0]
@@ -215,9 +216,11 @@ def submit_data(request, document_id, labels, pageTime):
         label2 = ""
 
     try:
-        label3 = totalLabels[0]
+        label3 = totalLabels[2]
     except:
         label3 =""
+
+    print(label1)
 
     data_to_submit = {
             "document_id": document_id,
@@ -229,7 +232,7 @@ def submit_data(request, document_id, labels, pageTime):
     # print(data_to_submit)
 
     email = request.session["email"]
-    append_to_json_file(email, label1, label2, label3, document_id, time)
+    append_to_json_file(email, label1, label2, label3, document_id, time, pageTime)
     response = requests.post(submit_document, json=data_to_submit).json()
     # print(response)
     
@@ -245,7 +248,8 @@ def submit_data(request, document_id, labels, pageTime):
      
     remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
 
-    # document_id = random.choice(remainingDocuments)
+    document_id = random.choice(remainingDocuments)
+    print(document_id)
     document_information = url + "get_document_information"
     data = {
          "user_id" : request.session["user_id"],
@@ -255,15 +259,35 @@ def submit_data(request, document_id, labels, pageTime):
     response = requests.post(document_information, json=data).json()
     
     recommended_labels = response["prediction"].split("\n")
+    print(recommended_labels)
+
+    first_recommended = ""
+    second_recommended = ""
+    third_recommended = ""
+    if recommended_labels[0]:
+         first_recommended = recommended_labels[0].strip()
+
+    try:
+        second_recommended = recommended_labels[1].strip()
+
+    except:
+         pass
+     
+    try:
+        third_recommended = recommended_labels[2].strip()
+
+    except:
+         pass
      
     textDocument = all_texts['text'][str(document_id)]
+    
     data = {
         'textDocument':textDocument,
         'document_id':document_id,
         "pageStart": str(datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S")),
-        "first_label": recommended_labels[0],
-        "second_label": recommended_labels[1],
-        "third_label": recommended_labels[2]
+        "first_label": first_recommended,
+        "second_label": second_recommended,
+        "third_label": third_recommended
     }
     return JsonResponse(data)
 
@@ -431,7 +455,7 @@ def dashboard(request):
     return render(request, "dashboard.html", {"user_id": request.session["user_id"], "start_time": request.session["start_time"]})
 
 def dashboard_data(request):
-    with open('/Users/danielstephens/Desktop/Nist Summer/user_data (5).json', "r") as user_file:
+    with open('./annotator/static/users.json', "r") as user_file:
         name_string = user_file.read()
         information = json.loads(name_string)
     # print(information)
