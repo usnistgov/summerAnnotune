@@ -2,14 +2,16 @@ document.addEventListener('DOMContentLoaded', function () {
         
     const manualsubmit = document.getElementById('manualLabelSubmit');
     const documentText = document.getElementById('documentText');
-    const userId = 0;
+    const userId = document.getElementById("user_id").innerText;
     var firstManualLabelInput = document.getElementById("firstManualLabelInput");
     var secondManualLabelInput = document.getElementById("secondManualLabelInput");
     var thirdManualLabelInput = document.getElementById("thirdManualLabelInput");
     const nextButton = document.getElementById('nextButton');
     let document_id = document.getElementById('document_id');
     var pageStartDiv = document.getElementById('pageStartTime');
-    let pageStart = document.getElementById('pageStartTime').innerText;
+    let pageStarter = document.getElementById('pageStartTime').innerText;
+    var pageStart = dateConvert(pageStarter);
+    // console.log(sample_date)
     
 
     
@@ -22,14 +24,33 @@ document.addEventListener('DOMContentLoaded', function () {
     function sendData() {
         
         const label1 = firstManualLabelInput.value.trim();
-        const label2 = secondManualLabelInput.value.trim();
-        const label3 = thirdManualLabelInput.value.trim();
-        const labels = label1+"and"+label2+"and"+label3;
-        console.log(labels)
+        let label2 = '';
+        let label3 = '';
+
+        if (secondManualLabelInput) {
+            label2 = secondManualLabelInput.value.trim();
+        }
+
+        if (thirdManualLabelInput) {
+            label3 = thirdManualLabelInput.value.trim();
+        }
+
+        let labels = label1;
+
+        if (label2) {
+            labels += " and " + label2;
+        }
+
+        if (label3) {
+            labels += " and " + label3;
+        }
+        // console.log(labels)
         const documentId = document.getElementById('document_id').textContent.trim();
         const now = new Date();
-        const elapsedPageTime = now - pageStartTime;
+        const elapsedPageTime = now - pageStart;
+        
         let mm = Math.floor(elapsedPageTime / 1000) % 60;
+        console.log(mm)
 
 
 
@@ -57,24 +78,22 @@ document.addEventListener('DOMContentLoaded', function () {
         })
             .then(response => response.json())
             .then(data => {
-                console.log('Success:', data);
+                // console.log('Success:', data);
                 documentText.textContent = data.textDocument;
                 document_id.textContent = data.document_id;
                 changeAllButtonsCSS();
-                if (data.first_label){
-                    document.getElementById(data.first_label).style.backgroundColor="rgb(163, 227, 245)";
-                    document.getElementById(data.first_label).style.width="200px";
-                    document.getElementById(data.first_label).style.fontSize="x-large";
-                    document.getElementById(data.second_label).style.backgroundColor="rgb(163, 227, 245)";
-                    document.getElementById(data.second_label).style.width="180px";
-                    document.getElementById(data.second_label).style.fontSize="larger";
-                    document.getElementById(data.third_label).style.backgroundColor="rgb(163, 227, 245)";
-                    document.getElementById(data.third_label).style.width="160px";
-                    document.getElementById(data.third_label).style.fontSize="large";
+                console.log(data)
+                if (data.first_label != ""){
+                    document.getElementById(data.first_label).style.backgroundColor="rgb(0, 195, 248);";
                 }
-                
-               
 
+                if (data.second_label!=""){
+                    document.getElementById(data.second_label).style.backgroundColor="rgb(137, 229, 255);";
+
+                }
+                if (data.third_label!=""){
+                    document.getElementById(data.third_label).style.backgroundColor="rgb(195, 242, 255);";
+                }
                 // buttons.forEach(button => button.disabled=false);
                 
                 firstManualLabelInput.value ="";
