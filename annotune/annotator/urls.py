@@ -11,7 +11,7 @@ urlpatterns = [
     path('documents/', views.list_documents, name='documents'),
     path("codebook/<int:user_id>/", views.codebook, name="codebook"),
     path("label/<int:document_id>", views.label, name="label"),
-    path('submit-data/<int:document_id>/<str:labels>/<str:pageTime>/', views.submit_data),
+    path('submit-data/<int:document_id>/<str:labels>/<str:pageTime>/<str:manualStatus>/', views.submit_data),
     path("fetch_data/<int:user_id>/<str:document_id>/", views.fetch_data, name="fetch_data"),
     path("skip_document/", views.skip_document),
     path('get_all_documents/', views.get_all_documents, name='get-all-documents'),

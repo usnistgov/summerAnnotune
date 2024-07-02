@@ -537,7 +537,7 @@ def get_document_data(url, user_id, document_id, all_texts):
 
 
 
-def append_to_json_file(email, label1, label2, label3, document_id, times, pageTime):
+def append_to_json_file(email, label1, label2, label3, document_id, times, pageTime, manualDoc):
     import os
     import json
     file_path="./annotator/static/users.json"
@@ -559,7 +559,8 @@ def append_to_json_file(email, label1, label2, label3, document_id, times, pageT
             },
             "time": times,
             "label_time": pageTime,
-            "document_id": document_id
+            "document_id": document_id,
+            "manual": manualDoc
         }
 
          
@@ -644,3 +645,8 @@ def get_all_labeled(email):
         first_label[b['labels']['first_label']].append(a)  
 
     return first_label
+
+import random
+
+def manual_function():
+        return "True" if random.random() < 0.35 else "False"

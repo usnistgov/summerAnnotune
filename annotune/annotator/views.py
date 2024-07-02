@@ -19,8 +19,8 @@ from django.http import HttpResponse, JsonResponse
 
 url =  "http://127.0.0.1:4000/"
 codebook_data = pd.read_excel("./annotator/data/codebook.xlsx")
-all_texts = json.load(open("./annotator/data/processed_nist_disaster_tweets.json"))
-# Create your views here.
+all_texts = json.load(open("./annotator/data/nist_disaster_tweets.json"))
+# Create your views here
 
 def login(request):
 
@@ -161,23 +161,30 @@ def label(request, document_id):
     recommended_labels =response['prediction']
     recommended_labels = recommended_labels.split("\n")
 
+    
 
     predictedLabel = {}
-
-    try:
-        predictedLabel["firstLabel"] = recommended_labels[0].strip().strip()
-    except:
+    manual = manual_function()
+    if manual=="True":
         predictedLabel["firstLabel"]= ""
-
-    try:
-        predictedLabel["secondLabel"] = recommended_labels[1].strip().strip()
-    except:
         predictedLabel["secondLabel"]= ""
-
-    try:
-        predictedLabel["thirdLabel"] = recommended_labels[2].strip().strip()
-    except:
         predictedLabel["thirdLabel"]= ""
+    
+    else: 
+        try:
+            predictedLabel["firstLabel"] = recommended_labels[0].strip().strip()
+        except:
+            predictedLabel["firstLabel"]= ""
+
+        try:
+            predictedLabel["secondLabel"] = recommended_labels[1].strip().strip()
+        except:
+            predictedLabel["secondLabel"]= ""
+
+        try:
+            predictedLabel["thirdLabel"] = recommended_labels[2].strip().strip()
+        except:
+            predictedLabel["thirdLabel"]= ""
 
     print(predictedLabel)
 
@@ -189,13 +196,14 @@ def label(request, document_id):
             'start_time': request.session['start_time'],
             "pageStart": datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S"),
             "predictedLabel": predictedLabel,
+            "manual" :manual
             }
     
 
     return render(request, "label.html", context=data)
 
 
-def submit_data(request, document_id, labels, pageTime):
+def submit_data(request, document_id, labels, pageTime, manualStatus):
     # print(pageTime)
     request.session["document_ids"].append(document_id)
     time=datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S")
@@ -229,7 +237,7 @@ def submit_data(request, document_id, labels, pageTime):
     # print(data_to_submit)
 
     email = request.session["email"]
-    append_to_json_file(email, label1, label2, label3, document_id, time, pageTime)
+    append_to_json_file(email, label1, label2, label3, document_id, time, pageTime, manualStatus)
     response = requests.post(submit_document, json=data_to_submit).json()
     # print(response)
     
@@ -242,9 +250,10 @@ def submit_data(request, document_id, labels, pageTime):
             information = json.loads(name_string)
     labeledDocuments = information[request.session["email"]]["document_ids"]
 
-     
-    remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
-
+    
+    remainingDocuments = [x for x in list(all_texts['text'].keys()) if int(x) not in labeledDocuments]
+    print(type(labeledDocuments[0]))
+    print(type(list(all_texts.keys())[0]))
     if document_id not in remainingDocuments:
          document_id = random.choice(remainingDocuments)
     # print(document_id)
@@ -262,20 +271,19 @@ def submit_data(request, document_id, labels, pageTime):
     first_recommended = ""
     second_recommended = ""
     third_recommended = ""
-    if recommended_labels[0]:
-         first_recommended = recommended_labels[0].strip().strip()
 
-    try:
-        second_recommended = recommended_labels[1].strip().strip()
-
-    except:
-         pass
-     
-    try:
-        third_recommended = recommended_labels[2].strip().strip()
-
-    except:
-         pass
+    manual = manual_function()
+    if manual =="False":
+        if recommended_labels[0]:
+            first_recommended = recommended_labels[0].strip().strip()
+        try:
+            second_recommended = recommended_labels[1].strip().strip()
+        except:
+            pass
+        try:
+            third_recommended = recommended_labels[2].strip().strip()
+        except:
+            pass
      
     textDocument = all_texts['text'][str(document_id)]
     
@@ -285,7 +293,8 @@ def submit_data(request, document_id, labels, pageTime):
         "pageStart": str(datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S")),
         "first_label": first_recommended,
         "second_label": second_recommended,
-        "third_label": third_recommended
+        "third_label": third_recommended,
+        "manual":manual
     }
     return JsonResponse(data)
 
@@ -296,7 +305,7 @@ def skip_document(request):
             name_string = user_file.read()
             information = json.loads(name_string)
     labeledDocuments = information[request.session["email"]]["document_ids"]
-    remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
+    remainingDocuments = [x for x in list(all_texts['text'].keys()) if int(x) not in labeledDocuments]
     document_id = random.choice(remainingDocuments)
     
     return JsonResponse({"document_id":document_id})
@@ -304,7 +313,7 @@ def skip_document(request):
 
 def fetch_data(request, user_id, document_id):
     labeledDocuments = request.session["document_ids"]
-    remainingDocuments = [x for x in list(all_texts['text'].keys()) if x not in labeledDocuments]
+    remainingDocuments = [x for x in list(all_texts['text'].keys()) if int(x) not in labeledDocuments]
     # random_number = random.random()
     if (document_id not in remainingDocuments):
         document_id = random.choice(remainingDocuments)
@@ -359,35 +368,42 @@ def relabel(request, document_id):
     given_labels = json.load(open("./annotator/static/users.json"))[request.session["email"]]["labels"][str(document_id)]["labels"]
 
     predictedLabel = {}
+    manual = manual_function()
 
-    try:
-        predictedLabel["firstLabel"] = recommended_labels[0].strip()
-    except:
-        predictedLabel["firstLabel"]= ""
+    predictedLabel["firstLabel"]= ""
+    predictedLabel["firstLabel"]= ""
+    predictedLabel["thirdLabel"]= ""
 
-    try:
-        predictedLabel["secondLabel"] = recommended_labels[1].strip()
-    except:
-        predictedLabel["secondLabel"]= ""
+    if manual ==False:
+         
 
-    try:
-        predictedLabel["thirdLabel"] = recommended_labels[2].strip()
-    except:
-        predictedLabel["thirdLabel"]= ""
+        try:
+            predictedLabel["firstLabel"] = recommended_labels[0].strip()
+        except:
+            predictedLabel["firstLabel"]= ""
+
+        try:
+            predictedLabel["secondLabel"] = recommended_labels[1].strip()
+        except:
+            predictedLabel["firstLabel"]= ""
+
+        try:
+            predictedLabel["thirdLabel"] = recommended_labels[2].strip()
+        except:
+            predictedLabel["thirdLabel"]= ""
 
     # print(predictedLabel)
     recommended_labels = []
 
 
     data = {"document": textDocument,
-
             "all_old_labels": sorted(list(codebook_data["Code"])),
             "user_id": request.session["user_id"],
             "document_id": document_id,
             "given_labels": given_labels,
             "start_time": request.session["start_time"],
             "pageStart": datetime.datetime.now(eastern).strftime("%d/%m/%y %H:%M:%S"),
-            "manual": "true",
+            "manual": manual,
             "relabel":"true",
             "predictedLabel": predictedLabel,
             }

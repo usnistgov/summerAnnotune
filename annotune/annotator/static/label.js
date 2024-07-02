@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let pageStart = dateConvert(pageStarter);
     let documentsData = [];
     let currentIndex = -1;
+    var manual = document.getElementById("manual");
 
     // Disable the submit button initially
     manualsubmit.disabled = true;
@@ -68,6 +69,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function sendData() {
+        var manualStatus = document.getElementById("manual").textContent;
+        console.log(manualStatus)
         const label1 = firstManualLabelInput.value.trim();
         const label2 = secondManualLabelInput ? secondManualLabelInput.value.trim() : '';
         const label3 = thirdManualLabelInput ? thirdManualLabelInput.value.trim() : '';
@@ -90,7 +93,7 @@ document.addEventListener('DOMContentLoaded', function () {
             response_time: new Date().toISOString()
         });
 
-        fetch(`/submit-data/${documentId}/${labels}/${mm}/`, {
+        fetch(`/submit-data/${documentId}/${labels}/${mm}/${document.getElementById("manual").textContent}/`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -118,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 firstManualLabelInput.value = "";
                 secondManualLabelInput.value = "";
                 thirdManualLabelInput.value = "";
+                manual.textContent = data.manual
                 manualsubmit.disabled = true; // Disable the submit button after submitting
                 DocumentAlert(data.document_id);
             })
