@@ -342,6 +342,7 @@ def labeled(request, user_id):
     # user_json = json.load(open("/Users/danielstephens/Desktop/Nist Summer/annotune/annotator/static/users.json"))
 
     all_labelled_data = get_all_labeled(request.session["email"])
+    # print(all_labelled_data)
     all_labeled =request.session["document_ids"]
 
     with open('./annotator/static/users.json', "r") as user_file:

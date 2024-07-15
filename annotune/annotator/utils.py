@@ -639,10 +639,11 @@ def get_all_labeled(email):
     user_json = json.load(open("./annotator/static/users.json"))
     first_label = {}
     for a, b in user_json[email]["labels"].items():
-        first_label[b['labels']['first_label']]=[]
+        first_label[(b['labels']['first_label']).strip()]=[]
 
     for a, b in user_json[email]["labels"].items():
-        first_label[b['labels']['first_label']].append(a)  
+        first_label[(b['labels']['first_label']).strip()].append(a)  
+        
 
     return first_label
 

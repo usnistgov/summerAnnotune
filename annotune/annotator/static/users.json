@@ -8,7 +8,12 @@
             865,
             1562,
             1952,
-            180
+            180,
+            1160,
+            2145,
+            1298,
+            200,
+            1394
         ],
         "label": [],
         "labels": {
@@ -77,15 +82,76 @@
                 "label_time": "4",
                 "document_id": 180,
                 "manual": "False"
+            },
+            "1160": {
+                "labels": {
+                    "first_label": "Disaster health support",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "02/07/24 17:15:20",
+                "label_time": "4",
+                "document_id": 1160,
+                "manual": "True"
+            },
+            "2145": {
+                "labels": {
+                    "first_label": "Discuss socio-political causes",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "02/07/24 17:15:22",
+                "label_time": "2",
+                "document_id": 2145,
+                "manual": "True"
+            },
+            "1298": {
+                "labels": {
+                    "first_label": "FLAG: Unclear Tweet",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "02/07/24 17:15:24",
+                "label_time": "1",
+                "document_id": 1298,
+                "manual": "True"
+            },
+            "200": {
+                "labels": {
+                    "first_label": "Comparison over time",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "02/07/24 17:19:25",
+                "label_time": "1",
+                "document_id": 200,
+                "manual": "False"
+            },
+            "1394": {
+                "labels": {
+                    "first_label": "Disaster health support",
+                    "second_label": "",
+                    "third_label": ""
+                },
+                "time": "02/07/24 17:19:27",
+                "label_time": "2",
+                "document_id": 1394,
+                "manual": "False"
             }
         },
         "start_time": [
             "02/07/24 14:36:14",
-            "02/07/24 15:02:19"
+            "02/07/24 15:02:19",
+            "02/07/24 17:15:10",
+            "08/07/24 11:46:57",
+            "15/07/24 02:52:02",
+            "15/07/24 03:00:48"
         ],
         "date": [],
         "logoutTime": [
-            "02/07/24 14:58:35"
+            "02/07/24 14:58:35",
+            "08/07/24 11:47:00",
+            "15/07/24 03:00:44"
         ],
         "pageTimes": [
             {
@@ -127,6 +193,94 @@
             {
                 "page": "label",
                 "time": "02/07/24 15:05:16"
+            },
+            {
+                "page": "homePage",
+                "time": "02/07/24 17:15:10"
+            },
+            {
+                "page": "codebook",
+                "time": "02/07/24 17:15:13"
+            },
+            {
+                "page": "Document_list",
+                "time": "02/07/24 17:15:14"
+            },
+            {
+                "page": "label",
+                "time": "02/07/24 17:15:16"
+            },
+            {
+                "page": "homePage",
+                "time": "08/07/24 11:46:57"
+            },
+            {
+                "page": "homePage",
+                "time": "15/07/24 02:52:02"
+            },
+            {
+                "page": "codebook",
+                "time": "15/07/24 02:52:07"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/07/24 02:52:11"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:52:15"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:52:42"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:52:43"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:54:44"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:55:14"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:59:11"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:59:57"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 02:59:58"
+            },
+            {
+                "page": "homePage",
+                "time": "15/07/24 03:00:48"
+            },
+            {
+                "page": "codebook",
+                "time": "15/07/24 03:00:50"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/07/24 03:00:52"
+            },
+            {
+                "page": "Document_list",
+                "time": "15/07/24 03:01:15"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 03:01:40"
+            },
+            {
+                "page": "labeled",
+                "time": "15/07/24 03:02:00"
             }
         ]
     }
